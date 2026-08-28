@@ -1,0 +1,21 @@
+{
+  "date": "2026-08-28",
+  "total_analyzed": 825,
+  "by_subsystem": {
+    "mm": 224,
+    "fs": 209,
+    "include": 182,
+    "arch": 101,
+    "kernel": 80,
+    "init": 23,
+    "lib": 4,
+    "ipc": 1,
+    "net": 1
+  },
+  "latest": {
+    "subsystem": "fs",
+    "name": "ep_insert",
+    "source": "fs/eventpoll.c:1264-1386",
+    "archive": "daily/2026/08/2026-08-28/fs_ep_insert.md"
+  }
+}
