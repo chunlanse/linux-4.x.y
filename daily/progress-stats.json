@@ -1,0 +1,61 @@
+{
+  "total_analyzed": 866,
+  "by_subsystem": {
+    "mm": 236,
+    "fs": 213,
+    "include": 193,
+    "arch": 105,
+    "kernel": 84,
+    "init": 25,
+    "lib": 5,
+    "drivers": 3,
+    "net": 1,
+    "ipc": 1
+  },
+  "by_subsystem_with_archived": {
+    "mm": 236,
+    "fs": 213,
+    "include": 193,
+    "arch": 105,
+    "kernel": 84,
+    "init": 25,
+    "lib": 5,
+    "drivers": 3,
+    "net": 1,
+    "ipc": 1
+  },
+  "last_updated": "2026-08-29",
+  "latest": {
+    "date": "2026-08-29",
+    "year": "2026",
+    "month": "08",
+    "subsys": "drivers/base",
+    "subsys_top": "drivers",
+    "name": "bus_add_driver",
+    "file": "drivers/base/bus.c:634-704",
+    "type": "function",
+    "summary": "将 device_driver 注册到所属 bus_type：创建 driver_private 私有对象、sysfs 建驱动目录、挂载 bus->p->klist_drivers、同步/异步 autoprobe 匹配总线已有设备、关联 module、创建 uevent 和 bind/unbind 属性文件",
+    "archive_rel": "2026/08/2026-08-29/drivers_bus_add_driver.md",
+    "feishu_doc": "https://my.feishu.cn/docx/TTQOdTaO3oiIfMxd2uSc9P5Kn1g",
+    "feishu_doc_id": "TTQOdTaO3oiIfMxd2uSc9P5Kn1g"
+  },
+  "history": [
+    {
+      "date": "2026-08-29",
+      "year": "2026",
+      "month": "08",
+      "subsys": "drivers/base",
+      "subsys_top": "drivers",
+      "name": "bus_add_driver",
+      "file": "drivers/base/bus.c:634-704",
+      "type": "function",
+      "summary": "将 device_driver 注册到所属 bus_type：创建 driver_private 私有对象、sysfs 建驱动目录、挂载 bus->p->klist_drivers、同步/异步 autoprobe 匹配总线已有设备、关联 module、创建 uevent 和 bind/unbind 属性文件",
+      "archive_rel": "2026/08/2026-08-29/drivers_bus_add_driver.md",
+      "feishu_doc": "https://my.feishu.cn/docx/TTQOdTaO3oiIfMxd2uSc9P5Kn1g",
+      "feishu_doc_id": "TTQOdTaO3oiIfMxd2uSc9P5Kn1g"
+    }
+  ],
+  "push_channels": [
+    "feishu_docx"
+  ]
+}
