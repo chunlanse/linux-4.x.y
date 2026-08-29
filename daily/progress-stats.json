@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-08-30",
+  "total_analyzed": 807,
+  "by_subsystem": {
+    "mm": {
+      "count": 241,
+      "description": "内存管理：page_alloc.c伙伴系统、SLUB/SLAB分配器、缺页中断、mmap/vmalloc、页缓存回收等",
+      "priority_weight": "25%"
+    },
+    "fs": {
+      "count": 233,
+      "description": "文件系统：VFS框架、ELF加载、ext2/ext3/ext4、ramfs/f2fs/fuse等",
+      "priority_weight": "15%"
+    },
+    "include": {
+      "count": 194,
+      "description": "通用头文件：核心数据结构定义、宏、内联函数、命名空间结构等",
+      "priority_weight": "辅助子系统"
+    },
+    "kernel": {
+      "count": 100,
+      "description": "核心子系统：fork/exec进程生命周期、调度器框架、CFS/RT调度类、workqueue、RCU锁、PID管理等",
+      "priority_weight": "25% (kernel/sched)",
+      "kernel_sched_count": 17
+    },
+    "init": {
+      "count": 27,
+      "description": "启动初始化：start_kernel链路、initramfs、do_mounts根挂载等",
+      "priority_weight": "5%"
+    },
+    "block": {
+      "count": 2,
+      "description": "块层：块设备总线、IO队列",
+      "priority_weight": "5%"
+    },
+    "security": {
+      "count": 3,
+      "description": "安全模块：SELinux、密钥、Credentials",
+      "priority_weight": "5%"
+    },
+    "drivers": {
+      "count": 1,
+      "description": "设备驱动：TTY SysRq等",
+      "priority_weight": "15%"
+    },
+    "ipc": {
+      "count": 1,
+      "description": "进程间通信：IPC namespace初始化",
+      "priority_weight": "剩余分摊"
+    },
+    "lib": {
+      "count": 4,
+      "description": "公共库：XArray、iov_iter迭代器等",
+      "priority_weight": "剩余分摊"
+    },
+    "boot": {
+      "count": 2,
+      "description": "架构相关启动：x86 Boot流程、ARM汇编",
+      "priority_weight": "辅助"
+    },
+    "appendix": {
+      "count": 5,
+      "description": "附录：container_of、链表、gcc扩展、高mem等通用概念",
+      "priority_weight": "辅助"
+    },
+    "debug": {
+      "count": 1,
+      "description": "调试相关",
+      "priority_weight": "辅助"
+    },
+    "kbuild": {
+      "count": 5,
+      "description": "内核构建系统：Makefile、Kconfig、zImage编译流程",
+      "priority_weight": "辅助"
+    },
+    "perf": {
+      "count": 12,
+      "description": "性能分析与eBPF工具链参考",
+      "priority_weight": "辅助"
+    },
+    "samples": {
+      "count": 1,
+      "description": "示例代码",
+      "priority_weight": "辅助"
+    }
+  },
+  "today_entry": {
+    "date": "2026-08-30",
+    "subsystem": "kernel/sched",
+    "function": "update_curr",
+    "file": "kernel/sched/fair.c:800-833",
+    "type": "function",
+    "archive_daily": "/workspace/daily/2026/08/2026-08-30/kernel_sched_update_curr.md",
+    "archive_subsystem": "/workspace/kernel/sched/fair.c/update_curr.md"
+  },
+  "coverage_notes": [
+    "drivers/ 子系统覆盖最低（仅1篇），后续轮次优先加权",
+    "ipc/、block/、security/ 覆盖较少，作为次级优先",
+    "kernel/sched 子目录核心 CFS 函数仍有大量空缺（enqueue/dequeue/pick_next/place_entity/check_preempt_tick 等待分析）",
+    "mm/vmscan.c 页面回收核心（kswapd/shrinker）仅1篇，深度不足"
+  ]
+}
