@@ -1,0 +1,45 @@
+{
+  "last_update": "2026-08-31",
+  "total_analyzed": 825,
+  "by_subsystem": {
+    "mm": {
+      "analyzed": 227,
+      "description": "内存管理（页分配/虚拟内存/Slab/高址映射/页缓存 等）",
+      "latest_entry": null
+    },
+    "fs": {
+      "analyzed": 209,
+      "description": "文件系统（VFS/路径解析/页缓存/挂载/Exec 等）",
+      "latest_entry": null
+    },
+    "include_linux": {
+      "analyzed": 158,
+      "description": "include/linux/ 下头文件核心结构与宏定义",
+      "latest_entry": null
+    },
+    "kernel_excl_sched": {
+      "analyzed": 67,
+      "description": "内核核心：fork/工作队列/pid/命名空间/参数解析 等（不含 sched）",
+      "latest_entry": null
+    },
+    "kernel_sched": {
+      "analyzed": 15,
+      "description": "进程调度：CFS/RT/Deadline/负载均衡/PELT/NUMA 调度",
+      "latest_entry": {
+        "date": "2026-08-31",
+        "name": "load_balance",
+        "file": "kernel/sched/fair.c:8709-8981",
+        "archive": "daily/2026/08/2026-08-31/kernel_sched_load_balance.md"
+      }
+    },
+    "others": {
+      "analyzed": 149,
+      "description": "init/、block/、ipc/、lib/、security/、drivers/、appendix/ 等",
+      "latest_entry": null
+    }
+  },
+  "priority_coverage_hint": {
+    "kernel_sched": "覆盖度较低（仅 15 篇），后续可继续关注：fair.c 中 rebalance_domains/load_balance/detach_tasks/attach_tasks/entity_tick/place_entity、rt.c、deadline.c、pelt.c、topology.c 等",
+    "drivers": "覆盖度极低（仅 1 篇），后续可重点关注：drivers/block/、drivers/net/、drivers/char/、drivers/pci/、drivers/base/ 下的总线与驱动模型"
+  }
+}
