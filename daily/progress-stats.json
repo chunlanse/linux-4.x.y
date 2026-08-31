@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-09-01",
+  "total_analyzed_functions": 891,
+  "by_subsystem": {
+    "mm": 230,
+    "fs": 221,
+    "include/linux": 182,
+    "kernel": 89,
+    "kernel/sched": 14,
+    "init": 23,
+    "lib": 4,
+    "block": 1,
+    "ipc": 1,
+    "drivers": 1,
+    "daily_new": 1
+  },
+  "priority_subsystem_coverage": {
+    "mm": "230 (核心 page_alloc/slab/vmalloc/mmap 已深度覆盖，vmscan/page-writeback/memcontrol 仍待补充)",
+    "kernel/sched": "14 (core.c 约12个 + fair.c pick_next_task_fair 新增1。CFS fair.c 核心函数(enqueue/dequeue/check_preempt/task_tick/pick_next_entity)、RT/Deadline 调度类 几乎空白)",
+    "drivers": "1 (几乎空白。下一步优先补充 block layer/设备模型/tty/PCI 核心)",
+    "fs": "221 (VFS 与 ELF 加载覆盖较深。具体文件系统 ext4/xfs/btrfs、epoll/pipe/signalfd 仍待补充)"
+  },
+  "next_targets_suggestion": [
+    "kernel/sched/fair.c: enqueue_task_fair / dequeue_task_fair",
+    "kernel/sched/fair.c: task_tick_fair / entity_tick",
+    "mm/vmscan.c: shrink_zones / shrink_list / shrink_page_list",
+    "drivers/block/blk-core.c: generic_make_request / blk_queue_bio",
+    "fs/eventpoll.c: ep_scan_ready_list / ep_poll_callback"
+  ]
+}
