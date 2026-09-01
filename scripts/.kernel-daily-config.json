@@ -1,0 +1,86 @@
+{
+  "notes_repo": {
+    "_comment": "novelinux/linux-4.x.y 为学习笔记仓库（与 workspace 同构，.c/.h 为目录存放 .md）。ANALYZED_SET 以本地 workspace 为准，无需抓取该仓库。",
+    "owner": "novelinux",
+    "name": "linux-4.x.y",
+    "branch": "master"
+  },
+  "kernel_source": {
+    "_comment": "实际内核 C/H 源码来源：torvalds/linux v4.14（LTS，对应 linux-4.x.y）。raw.githubusercontent.com 访问不限速，替代 GitHub Contents JSON API。",
+    "owner": "torvalds",
+    "name": "linux",
+    "tag": "v4.14",
+    "raw_base": "https://raw.githubusercontent.com/torvalds/linux/v4.14",
+    "fetch_retries": 3,
+    "fetch_retry_backoff_sec": 2.0
+  },
+  "kernel_repo": {
+    "_deprecated": "改用 kernel_source 抓 C 源码，保留字段兼容旧代码读取（值同 kernel_source）",
+    "owner": "torvalds",
+    "name": "linux",
+    "branch": "v4.14",
+    "raw_base": "https://raw.githubusercontent.com/torvalds/linux/v4.14",
+    "api_base": "https://api.github.com/repos/torvalds/linux/contents",
+    "fetch_retries": 3,
+    "fetch_retry_backoff_sec": 2.0
+  },
+  "workspace_root": "/workspace",
+  "archive_root": "/workspace/daily",
+  "log_root": "/workspace/daily/logs",
+  "priority_subsystems": [
+    {"dir": "mm",            "weight": 25},
+    {"dir": "kernel/sched",  "weight": 25},
+    {"dir": "drivers",       "weight": 15},
+    {"dir": "fs",            "weight": 15},
+    {"dir": "kernel",        "weight": 6},
+    {"dir": "ipc",           "weight": 3},
+    {"dir": "net",           "weight": 3},
+    {"dir": "block",         "weight": 3},
+    {"dir": "security",      "weight": 3},
+    {"dir": "lib",           "weight": 2}
+  ],
+  "subsystem_coverage_threshold": 0.7,
+  "naming_prefixes_function": [
+    "^do_",       "^sys_",     "^__do_",   "^vfs_",
+    "_init$",     "_initcall$",
+    "_alloc$",    "_free$",    "_alloc_node$", "_free_pages$",
+    "_map$",      "_unmap$",
+    "^get_",      "^find_",    "^lookup_", "^create_",
+    "^copy_",     "^dup_",     "^clone_",  "^setup_",
+    "^register_", "^unregister_",
+    "^start_",    "^rest_",    "^try_to_", "^wakeup_"
+  ],
+  "naming_prefixes_struct": [
+    "struct_", "enum_"
+  ],
+  "function_core_hint_regex": [
+    "EXPORT_SYMBOL(_GPL)?\\s*\\(\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\)",
+    "^static\\s+(inline\\s+)?[a-zA-Z_][a-zA-Z0-9_]*\\s+\\*?\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
+    "^[a-zA-Z_][a-zA-Z0-9_*\\s]+\\s+\\*?\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\([^;]*\\)\\s*$"
+  ],
+  "analyze_exclude_globs": [
+    "daily/**",
+    ".trae/**",
+    "perf/books/**",
+    "perf/tools/**",
+    "samples/**"
+  ],
+  "feishu": {
+    "enabled": true,
+    "prefer": "docx",
+    "docx": {
+      "parent_position": "my_library",
+      "parent_token": "",
+      "title_template": "【{date} 内核每日学习】{subsystem}/{name}"
+    },
+    "im": {
+      "send_type": "user",
+      "user_id": "ou_f0a8c080cedb2a5b307a5b6d1e1dba15",
+      "chat_id": ""
+    },
+    "lark_cli_path": "lark-cli"
+  },
+  "mermaid_context_lines": 20,
+  "min_callers_for_table": 3,
+  "max_toplevel_candidates_per_file": 20
+}

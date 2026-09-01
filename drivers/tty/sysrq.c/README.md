@@ -17,3 +17,5 @@
 ## keys
 
 path: drivers/tty/sysrq.c
+
+| `sysrq_handle_crash` | #endif  CONFIG_VT | [分析笔记](./sysrq_handle_crash.md) | 2026-09-02 |

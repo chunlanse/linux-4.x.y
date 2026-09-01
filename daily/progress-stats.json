@@ -1,0 +1,30 @@
+{
+  "by_subsystem": {
+    "kernel": 2,
+    "drivers": 2
+  },
+  "total_analyzed": 4,
+  "last_run": "2026-09-02",
+  "daily_runs": [
+    {
+      "date": "2026-09-01",
+      "subsystem": "kernel",
+      "name": "sched_setscheduler",
+      "file": "kernel/sched/core.c",
+      "type": "function",
+      "main_archive": "/workspace/daily/2026/09/2026-09-01/kernel_sched_setscheduler.md",
+      "feishu_status": "deferred_im",
+      "feishu_doc_url": null
+    },
+    {
+      "date": "2026-09-02",
+      "subsystem": "drivers",
+      "name": "sysrq_handle_crash",
+      "file": "drivers/tty/sysrq.c",
+      "type": "function",
+      "main_archive": "/workspace/daily/2026/09/2026-09-02/drivers_sysrq_handle_crash.md",
+      "feishu_status": "success",
+      "feishu_doc_url": "https://my.feishu.cn/docx/JMcIdhy1ooSbVGxvP5HcfXdHnZ2"
+    }
+  ]
+}
