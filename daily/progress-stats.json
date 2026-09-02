@@ -1,0 +1,114 @@
+{
+  "last_updated": "2026-09-03",
+  "total_analyzed_items": 820,
+  "note": "历史就地归档函数/结构数量按扫描估算；本计数器以每日归档条目中的核心项为主",
+  "daily_added": {
+    "2026-09-03": 1
+  },
+  "by_subsystem": {
+    "mm": {
+      "historical_analyzed": 293,
+      "daily_entries": 1,
+      "latest_item": "mm/oom_kill.c::out_of_memory (2026-09-03)",
+      "core_modules_covered": [
+        "page_alloc.c", "slab.c", "slab_common.c", "vmalloc.c", "mmap.c",
+        "memory.c", "filemap.c", "readahead.c", "memblock.c", "highmem.c",
+        "nobootmem.c", "bootmem.c", "util.c", "oom_kill.c (新增)",
+        "vmscan.c", "cma.c", "slab.h", "internal.h"
+      ]
+    },
+    "kernel": {
+      "historical_analyzed": 116,
+      "daily_entries": 0,
+      "core_modules_covered": [
+        "fork.c", "sched/core.c", "workqueue.c", "pid.c", "kthread.c",
+        "locking/", "params.c", "percpu.c", "smp.c", "cpu.c", "bounds.c",
+        "nsproxy.c", "cgroup.c", "user.c"
+      ]
+    },
+    "kernel/sched": {
+      "historical_analyzed": 13,
+      "daily_entries": 0,
+      "core_modules_covered": [
+        "sched/core.c (11 函数)", "sched/sched.h (2 结构)"
+      ],
+      "to_cover_next_priority": [
+        "fair.c::select_idle_sibling / place_entity / enqueue_task_fair / task_fork_fair",
+        "fair.c::select_task_rq_fair / update_curr / wakeup_preempt_entity",
+        "deadline.c / rt.c / idle.c / cputime.c 关键入口"
+      ]
+    },
+    "fs": {
+      "historical_analyzed": 215,
+      "daily_entries": 0,
+      "core_modules_covered": [
+        "exec.c", "namei.c", "dcache.c", "namespace.c", "inode.c",
+        "file.c", "open.c", "read_write.c", "super.c", "block_dev.c",
+        "file_table.c", "filesystems.c", "libfs.c", "buffer.c",
+        "sync.c", "attr.c", "mount.h", "ext4/", "fuse/", "ramfs/",
+        "f2fs/", "jbd2/", "sdcardfs/", "ext2/", "binfmt_elf.c"
+      ]
+    },
+    "include/linux": {
+      "historical_analyzed": 167,
+      "daily_entries": 0,
+      "note": "核心数据结构与宏定义覆盖最广的目录"
+    },
+    "include/uapi+asm-generic+net+trace": {
+      "historical_analyzed": 26,
+      "daily_entries": 0
+    },
+    "init": {
+      "historical_analyzed": 27,
+      "daily_entries": 0,
+      "core_modules_covered": [
+        "main.c (start_kernel / kernel_init / do_initcalls 等 11)",
+        "do_mounts.c (rootfs/init_rootfs 等 8)",
+        "init_task.c (init_task / init_thread_union)",
+        "initramfs.c (populate_rootfs)",
+        "version.c (init_uts_ns)"
+      ]
+    },
+    "ipc": {
+      "historical_analyzed": 1,
+      "daily_entries": 0,
+      "note": "仅 msgutil.c::init_ipc_ns，大量待覆盖 (msg.c/sem.c/shm.c/util.c)"
+    },
+    "block": {
+      "historical_analyzed": 1,
+      "daily_entries": 0,
+      "note": "仅 bus 概述；待覆盖 blk-core.c / blk-dev.c / elevator.c / bio.c"
+    },
+    "security": {
+      "historical_analyzed": 3,
+      "daily_entries": 0,
+      "note": "credentials / keys / selinux 概述，待深入 security/keys/*.c, SELinux hooks"
+    },
+    "lib": {
+      "historical_analyzed": 5,
+      "daily_entries": 0,
+      "core_modules_covered": [
+        "iov_iter.c (4)", "xarray.c (README)"
+      ]
+    },
+    "drivers": {
+      "historical_analyzed": 1,
+      "daily_entries": 0,
+      "note": "workspace 已存在 drivers/tty/ 目录项索引；核心 base/core.c、dd.c、bus.c、devres.c、driver.c 待分析",
+      "to_cover_next_priority": [
+        "drivers/base/core.c::device_add / device_del / device_create / device_register",
+        "drivers/base/dd.c::driver_probe_device / really_probe",
+        "drivers/base/bus.c::bus_register / device_bind_driver",
+        "drivers/base/devres.c::devm_kzalloc / devres_release_all",
+        "drivers/base/class.c::class_create / class_register"
+      ]
+    }
+  },
+  "priority_pipeline_next_runs": [
+    "mm: mm/oom_kill.c::oom_badness / select_bad_process / __oom_kill_process / oom_reaper",
+    "mm: mm/page-writeback.c::do_writepages 深度 (占位)",
+    "kernel/sched: fair.c::select_idle_sibling / place_entity (0覆盖率, 25%权重)",
+    "drivers: base/core.c::device_link_add / device_add (0覆盖率, 15%权重)",
+    "block: blk-core.c::generic_make_request / submit_bio (1项低覆盖, 提权)"
+  ]
+}
