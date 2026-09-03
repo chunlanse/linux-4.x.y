@@ -1,0 +1,128 @@
+{
+  "last_updated": "2026-09-04",
+  "total_analyzed": 876,
+  "by_subsystem": {
+    "security": 2,
+    "arch": 127,
+    "kernel/sched": 14,
+    "kernel": 75,
+    "include": 182,
+    "ipc": 1,
+    "init": 23,
+    "lib": 4,
+    "net": 1,
+    "fs": 217,
+    "mm": 230
+  },
+  "top_subsystems": [
+    [
+      "mm",
+      230
+    ],
+    [
+      "fs",
+      217
+    ],
+    [
+      "include",
+      182
+    ],
+    [
+      "arch",
+      127
+    ],
+    [
+      "kernel",
+      75
+    ],
+    [
+      "init",
+      23
+    ],
+    [
+      "kernel/sched",
+      14
+    ],
+    [
+      "lib",
+      4
+    ],
+    [
+      "security",
+      2
+    ],
+    [
+      "ipc",
+      1
+    ],
+    [
+      "net",
+      1
+    ]
+  ],
+  "today_added": {
+    "date": "2026-09-04",
+    "subsystem": "kernel/sched",
+    "name": "check_preempt_curr",
+    "file": "kernel/sched/core.c",
+    "type": "function"
+  },
+  "estimated_coverage": {
+    "mm": {
+      "analyzed": 230,
+      "estimated_core": 150
+    },
+    "fs": {
+      "analyzed": 217,
+      "estimated_core": 300
+    },
+    "include": {
+      "analyzed": 182,
+      "estimated_core": 500
+    },
+    "arch": {
+      "analyzed": 127,
+      "estimated_core": 800
+    },
+    "kernel": {
+      "analyzed": 75,
+      "estimated_core": 200
+    },
+    "init": {
+      "analyzed": 23,
+      "estimated_core": 60
+    },
+    "kernel/sched": {
+      "analyzed": 14,
+      "estimated_core": 120
+    },
+    "lib": {
+      "analyzed": 4,
+      "estimated_core": 50
+    },
+    "security": {
+      "analyzed": 2,
+      "estimated_core": 30
+    },
+    "ipc": {
+      "analyzed": 1,
+      "estimated_core": 20
+    },
+    "net": {
+      "analyzed": 1,
+      "estimated_core": 500
+    },
+    "drivers": {
+      "analyzed": 0,
+      "estimated_core": 1000
+    },
+    "block": {
+      "analyzed": 0,
+      "estimated_core": 30
+    },
+    "boot": {
+      "analyzed": 0,
+      "estimated_core": 40
+    }
+  }
+}
