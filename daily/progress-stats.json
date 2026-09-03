@@ -5,6 +5,17 @@
   "daily_added": {
     "2026-09-03": 1
   },
+  "feishu_push": {
+    "2026-09-03": {
+      "doc_title": "每日内核源码分析：out_of_memory（mm/oom_kill.c）2026-09-03",
+      "doc_url": "https://my.feishu.cn/docx/S6BIdzRhIoQ1auxyoABcQ7Z0n8e",
+      "doc_token": "S6BIdzRhIoQ1auxyoABcQ7Z0n8e",
+      "im_message_id": "om_x100b66a04f70cc80b119ff69aca342d",
+      "im_chat_id": "oc_b6b08e4754c49d68a85f5e11326c2cad",
+      "pushed_to": "赵德超 (ou_f0a8c080cedb2a5b307a5b6d1e1dba15) 私聊",
+      "pushed_at": "2026-09-03 09:38:35"
+    }
+  },
   "by_subsystem": {
     "mm": {
       "historical_analyzed": 293,
