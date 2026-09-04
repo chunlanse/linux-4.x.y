@@ -1,0 +1,29 @@
+{
+  "last_updated": "2026-09-05",
+  "total_analyzed": 890,
+  "kernel_version": "4.3",
+  "source_repo": "https://github.com/torvalds/linux.git (tag v4.3)",
+  "by_subsystem": {
+    "mm": 228,
+    "fs": 221,
+    "include": 182,
+    "arch": 127,
+    "kernel": 90,
+    "init": 23,
+    "appendix": 5,
+    "lib": 4,
+    "kbuild": 3,
+    "security": 2,
+    "perf": 1,
+    "net": 1,
+    "ipc": 1,
+    "boot": 1,
+    "block": 1
+  },
+  "priority_subsystems_remaining": {
+    "mm": "已分析较多，page_alloc.c/slab.c/mmap.c/vmalloc.c 覆盖较全",
+    "kernel/sched": "core.c 已分析 12 个，fair.c/rt.c/deadline.c 仍有大量核心函数待分析",
+    "drivers": "分析较少，待补充",
+    "fs": "ext4 覆盖较多，其他文件系统待补充"
+  }
+}
