@@ -1,0 +1,26 @@
+{
+  "total_analyzed": 1,
+  "last_updated": "2026-09-06",
+  "by_subsystem": {
+    "kernel/sched": 1,
+    "mm": 0,
+    "fs": 0,
+    "drivers": 0,
+    "kernel": 0,
+    "ipc": 0,
+    "net": 0,
+    "block": 0,
+    "security": 0,
+    "lib": 0
+  },
+  "history": [
+    {
+      "date": "2026-09-06",
+      "subsystem": "kernel/sched",
+      "name": "set_user_nice",
+      "file": "kernel/sched/core.c",
+      "lines": "3774-3827",
+      "feishu_url": "https://my.feishu.cn/docx/UeoBdHRTRoXlFTxgqxUcHIKLn4g"
+    }
+  ]
+}
