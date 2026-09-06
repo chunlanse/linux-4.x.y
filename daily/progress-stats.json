@@ -1,0 +1,13 @@
+{
+  "total_analyzed": 1,
+  "subsystems": {
+    "kernel/sched": {
+      "count": 1,
+      "functions": ["io_schedule"]
+    }
+  },
+  "dates": {
+    "2026-09-07": ["kernel/sched/io_schedule"]
+  },
+  "last_updated": "2026-09-07"
+}
