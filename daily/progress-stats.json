@@ -1,0 +1,17 @@
+{
+  "last_updated": "2026-09-08",
+  "total_analyzed": 892,
+  "by_subsystem": {
+    "mm": 230,
+    "fs": 221,
+    "include/linux": 157,
+    "kernel": 90,
+    "kernel/fork.c": 17,
+    "kernel/sched": 15,
+    "init": 23,
+    "lib": 4,
+    "security": 2,
+    "ipc": 1,
+    "block": 1
+  }
+}
