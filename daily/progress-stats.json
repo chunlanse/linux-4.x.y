@@ -1,0 +1,22 @@
+{
+  "last_updated": "2026-09-09",
+  "total_analyzed": 893,
+  "by_subsystem": {
+    "mm": 230,
+    "kernel/sched": 13,
+    "fs": 222,
+    "drivers": 0,
+    "kernel": 89,
+    "init": 23,
+    "ipc": 1,
+    "net": 1,
+    "block": 1,
+    "security": 2,
+    "lib": 4
+  },
+  "priority_subsystems_coverage": {
+    "mm": { "analyzed": 230, "note": "约占 mm/ 全局函数的 21%" },
+    "kernel/sched": { "analyzed": 13, "note": "约占 kernel/sched/ 全局函数的 4%" },
+    "drivers": { "analyzed": 0, "note": "尚未开始分析 drivers/ 子系统" }
+  }
+}
