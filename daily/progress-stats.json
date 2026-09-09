@@ -1,0 +1,23 @@
+{
+  "updated_at": "2026-09-10",
+  "total_analyzed": 807,
+  "by_subsystem": {
+    "mm": 241,
+    "fs": 233,
+    "include": 194,
+    "kernel": 99,
+    "init": 27,
+    "security": 3,
+    "lib": 5,
+    "block": 2,
+    "drivers": 1,
+    "ipc": 1,
+    "net": 1
+  },
+  "today": {
+    "date": "2026-09-10",
+    "target": "pick_next_entity",
+    "subsystem": "kernel/sched",
+    "file": "kernel/sched/fair.c"
+  }
+}
