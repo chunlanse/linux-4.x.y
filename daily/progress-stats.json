@@ -1,0 +1,1 @@
+{"last_updated": "2026-09-11", "total_analyzed": 715, "by_subsystem": {"mm": 224, "include": 163, "fs": 132, "arch": 86, "kernel": 81, "init": 23, "lib": 4, "net": 1, "ipc": 1, "drivers": 0}, "priority_subsystems": ["mm", "kernel/sched", "drivers", "fs", "kernel", "ipc", "net", "block", "security", "lib"]}
