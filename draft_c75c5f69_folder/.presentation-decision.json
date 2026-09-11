@@ -1,0 +1,1 @@
+{"audience":"内核学习者","reader_task":"理解 CFS place_entity 函数的 vruntime 放置逻辑","genre_contract":"router.knowledge","adapter":null,"presentation_mode":"normal","visual_plan":{"reason":"数据结构字段对比用表格，流程逻辑用步骤列表与代码块表达","blocks":[]}}

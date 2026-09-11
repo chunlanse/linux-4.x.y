@@ -1,0 +1,32 @@
+{
+  "last_updated": "2026-09-12",
+  "total_analyzed": 891,
+  "by_subsystem": {
+    "mm": 230,
+    "fs": 221,
+    "kernel": {
+      "sched": 14,
+      "fork": 15,
+      "workqueue": 27,
+      "other": 35
+    },
+    "init": 23,
+    "include/linux": 75,
+    "lib": 4,
+    "security": 2,
+    "ipc": 1,
+    "net": 1,
+    "block": 1,
+    "drivers": 0,
+    "daily_new": 1
+  },
+  "daily_entries": [
+    {
+      "date": "2026-09-12",
+      "subsystem": "kernel/sched",
+      "name": "place_entity",
+      "file": "kernel/sched/fair.c",
+      "archive": "daily/2026/09/2026-09-12/kernel_sched_place_entity.md"
+    }
+  ]
+}

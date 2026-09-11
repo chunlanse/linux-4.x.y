@@ -1,0 +1,197 @@
+<title>每日内核源码分析：place_entity（CFS 调度实体 vruntime 放置）</title>
+
+<p><b>日期</b>：2026-09-12　|　<b>子系统</b>：kernel/sched（CFS 完全公平调度器）　|　<b>源文件</b>：kernel/sched/fair.c:3030-3060　|　<b>内核版本</b>：Linux 4.1.6</p>
+
+<hr/>
+
+<h1 seq="auto">功能作用</h1>
+
+<p><code>place_entity</code> 是 CFS（Completely Fair Scheduler，完全公平调度器）中<b>决定一个调度实体（sched_entity）在入队时其虚拟运行时间（vruntime）初始位置</b>的核心函数。</p>
+
+<p>CFS 的核心思想是：用 <code>vruntime</code>（虚拟运行时间）度量每个任务已获得的 CPU 服务量，总是选择 <code>vruntime</code> 最小的任务运行。<code>vruntime</code> 越小，说明该任务获得的 CPU 时间越少，越应该被优先调度。所有就绪实体按 <code>vruntime</code> 挂在一棵红黑树（<code>cfs_rq-&gt;tasks_timeline</code>）上，最左侧节点即下一个被调度的实体。</p>
+
+<p><code>place_entity</code> 的职责是在实体被插入红黑树<b>之前</b>，为其计算一个合理的 <code>vruntime</code> 初值：</p>
+
+<ol>
+<li><b>新创建的任务（fork）</b>不会一上来就抢占正在运行的任务，而是被"赊账"（debit）一个时间片，放到当前调度周期的末尾，避免饿死已有任务。</li>
+<li><b>刚从睡眠中唤醒的任务（wakeup）</b>能获得一定的"睡眠补偿"——它在睡眠期间没消耗 CPU，<code>vruntime</code> 已落后于运行中的任务，但若直接入队会因 <code>vruntime</code> 过小而长时间霸占 CPU，所以用阈值 <code>sysctl_sched_latency</code> 截断补偿，防止"睡眠者福利"失控。</li>
+<li><b>从 fair 类切走的任务（switched_from_fair）</b>在切回前被规范化 <code>vruntime</code>，防止把在其他调度类中度过的时间当作"睡眠"套取无限补偿。</li>
+</ol>
+
+<p>最终通过 <code>max_vruntime(se-&gt;vruntime, vruntime)</code> 保证实体的 <code>vruntime</code> 不会被<b>回退</b>——即不会因为入队而"获得"额外服务时间，这是 CFS 公平性的底线。</p>
+
+<h1 seq="auto">关键数据结构</h1>
+
+<h2 seq="auto">struct sched_entity（include/linux/sched.h:1179）</h2>
+
+<p>CFS 的调度实体，既可以是一个任务，也可以是一个调度组（组调度）。<code>place_entity</code> 直接操作的核心字段：</p>
+
+<table>
+<thead><tr><th background-color="light-gray"><p>字段</p></th><th background-color="light-gray"><p>类型</p></th><th background-color="light-gray"><p>含义</p></th></tr></thead>
+<tbody>
+<tr><td><p><code>vruntime</code></p></td><td><p><code>u64</code></p></td><td><p><b>虚拟运行时间</b>，CFS 排序的唯一键。值越小越先被调度。</p></td></tr>
+<tr><td><p><code>load</code></p></td><td><p><code>struct load_weight</code></p></td><td><p>实体的权重（由 nice 值决定），<code>weight</code> 越大，<code>calc_delta_fair</code> 折算的 <code>vruntime</code> 增长越慢。</p></td></tr>
+<tr><td><p><code>on_rq</code></p></td><td><p><code>unsigned int</code></p></td><td><p>实体是否已在运行队列上，影响 <code>sched_slice</code> 中对总权重的计算。</p></td></tr>
+</tbody>
+</table>
+
+<callout emoji="💡" background-color="light-blue"><p><code>vruntime</code> 的增长速率与实体权重成反比：<code>vruntime += delta_exec * NICE_0_LOAD / se-&gt;load.weight</code>，即权重越高（nice 越低），虚拟时间走得越慢，越容易被选中。</p></callout>
+
+<h2 seq="auto">struct cfs_rq（kernel/sched/sched.h）</h2>
+
+<p>CFS 的运行队列，每个 CPU 一个（组调度时每组每层一个）。关键字段：</p>
+
+<table>
+<thead><tr><th background-color="light-gray"><p>字段</p></th><th background-color="light-gray"><p>类型</p></th><th background-color="light-gray"><p>含义</p></th></tr></thead>
+<tbody>
+<tr><td><p><code>min_vruntime</code></p></td><td><p><code>u64</code></p></td><td><p>该队列中所有实体 <code>vruntime</code> 的最小值（单调递增，只增不减）。<code>place_entity</code> 以此为基准计算新实体的初始 <code>vruntime</code>。</p></td></tr>
+<tr><td><p><code>tasks_timeline</code></p></td><td><p><code>struct rb_root</code></p></td><td><p>按 <code>vruntime</code> 排序的红黑树，实体入队即插入此树。</p></td></tr>
+<tr><td><p><code>nr_running</code></p></td><td><p><code>unsigned long</code></p></td><td><p>队列上就绪实体数，参与 <code>__sched_period</code> 的周期拉伸计算。</p></td></tr>
+<tr><td><p><code>load</code></p></td><td><p><code>struct load_weight</code></p></td><td><p>队列上所有实体权重之和，用于按权重分配时间片。</p></td></tr>
+</tbody>
+</table>
+
+<h2 seq="auto">关键全局变量与调优参数</h2>
+
+<table>
+<thead><tr><th background-color="light-gray"><p>名称</p></th><th background-color="light-gray"><p>默认值</p></th><th background-color="light-gray"><p>作用</p></th></tr></thead>
+<tbody>
+<tr><td><p><code>sysctl_sched_latency</code></p></td><td><p>6,000,000 ns（6 ms）</p></td><td><p>一个调度周期的目标长度；同时也是睡眠补偿的截断阈值。</p></td></tr>
+<tr><td><p><code>sched_feat(START_DEBIT)</code></p></td><td><p>true</p></td><td><p>新任务入队时是否扣除一个虚拟时间片（防止新任务抢占）。</p></td></tr>
+<tr><td><p><code>sched_feat(GENTLE_FAIR_SLEEPERS)</code></p></td><td><p>true</p></td><td><p>是否将睡眠补偿阈值减半，使睡眠者的优势更温和。</p></td></tr>
+<tr><td><p><code>NICE_0_LOAD</code></p></td><td><p>1024</p></td><td><p>nice 值为 0 的任务的权重基准。</p></td></tr>
+</tbody>
+</table>
+
+<h1 seq="auto">核心逻辑流程图</h1>
+
+<whiteboard type="mermaid">flowchart TD
+  A[入口 place_entity cfs_rq, se, initial] --> B[vruntime = cfs_rq.min_vruntime]
+  B --> C{initial == 1 且 START_DEBIT 开启?}
+  C -->|是 新任务fork| D[vruntime += sched_vslice]
+  C -->|否| E{initial == 0 唤醒/切类?}
+  D --> E
+  E -->|是| F[thresh = sysctl_sched_latency 6ms]
+  F --> G{GENTLE_FAIR_SLEEPERS 开启?}
+  G -->|是| H[thresh >>= 1 减半为 3ms]
+  G -->|否| I[thresh 保持 6ms]
+  H --> J[vruntime -= thresh 给予睡眠补偿]
+  I --> J
+  E -->|否| K[不做睡眠补偿]
+  J --> L[se.vruntime = max_vruntime]
+  K --> L
+  L --> M[返回]</whiteboard>
+
+<h2 seq="auto">关键决策点解读</h2>
+
+<ol>
+<li><b>基准选择</b>：<code>vruntime</code> 初始值取 <code>cfs_rq-&gt;min_vruntime</code>，保证新实体从队列的"最公平基准线"起步，而不是从 0 开始（否则会瞬间抢占所有人）。</li>
+<li><b>START_DEBIT 分支（initial=1，新 fork 任务）</b>：新任务还没跑过 CPU，理论上 <code>vruntime</code> 应为 0，但这会让它立即成为红黑树最左节点并抢占当前任务。START_DEBIT 给它加上一个 <code>sched_vslice</code>（按其权重折算的虚拟时间片），相当于让它"排队到当前周期末尾"。</li>
+<li><b>睡眠补偿分支（initial=0，唤醒/切类）</b>：唤醒任务在睡眠期间 <code>vruntime</code> 没有增长，已比运行中任务小。为让它较快被调度（响应性），从基准 <code>vruntime</code> 中减去阈值 <code>thresh</code>，相当于"睡眠奖励"。但奖励被 <code>sysctl_sched_latency</code> 封顶，避免长时间睡眠任务一唤醒就独占 CPU。</li>
+<li><b>GENTLE_FAIR_SLEEPERS</b>：将 <code>thresh</code> 减半（6ms→3ms），使睡眠者优势更温和，防止大量睡眠者同时唤醒时把 <code>vruntime</code> 分布（spread）撕裂。</li>
+<li><b>max_vruntime 兜底</b>：<code>se-&gt;vruntime = max_vruntime(se-&gt;vruntime, vruntime)</code> 保证最终值<b>不小于</b>实体原有 <code>vruntime</code>。这是 CFS 铁律——实体不能因重新入队获得"负的服务时间"，否则破坏公平性。</li>
+</ol>
+
+<h1 seq="auto">调用关系</h1>
+
+<h2 seq="auto">调用者（who calls me）</h2>
+
+<p><code>place_entity</code> 被三个上游场景调用，对应任务生命周期的三个关键节点：</p>
+
+<table>
+<thead><tr><th background-color="light-gray"><p>调用方</p></th><th background-color="light-gray"><p>所在文件:行</p></th><th background-color="light-gray"><p>调用场景</p></th><th background-color="light-gray"><p>initial</p></th></tr></thead>
+<tbody>
+<tr><td><p><code>enqueue_entity</code></p></td><td><p>fair.c:3083</p></td><td><p>任务被唤醒入队（ENQUEUE_WAKEUP 标志）</p></td><td><p>0</p></td></tr>
+<tr><td><p><code>task_fork_fair</code></p></td><td><p>fair.c:7861</p></td><td><p>fork 创建新任务时设置子任务初始 vruntime</p></td><td><p>1</p></td></tr>
+<tr><td><p><code>switched_from_fair</code></p></td><td><p>fair.c:7918</p></td><td><p>任务离开 fair 类时规范化 vruntime，防止套取无限睡眠补偿</p></td><td><p>0</p></td></tr>
+</tbody>
+</table>
+
+<p>进一步的上游调用链：</p>
+
+<ul>
+<li><code>enqueue_entity</code> ← <code>enqueue_task_fair</code>（fair_sched_class 的 <code>.enqueue_task</code> 回调）← <code>activate_task</code>（core.c）← <code>try_to_wake_up</code>、<code>wake_up_process</code> 等唤醒路径。</li>
+<li><code>task_fork_fair</code> ← <code>sched_fork</code>（core.c）← <code>copy_process</code>（fork.c）。</li>
+<li><code>switched_from_fair</code> ← <code>__setscheduler</code>（core.c）当任务调度策略从 CFS 改为 RT/DEADLINE 时。</li>
+</ul>
+
+<h2 seq="auto">被调用者（who I call）</h2>
+
+<table>
+<thead><tr><th background-color="light-gray"><p>类别</p></th><th background-color="light-gray"><p>函数/宏</p></th><th background-color="light-gray"><p>位置</p></th><th background-color="light-gray"><p>作用</p></th></tr></thead>
+<tbody>
+<tr><td><p>核心路径</p></td><td><p><code>sched_vslice</code></p></td><td><p>fair.c:663</p></td><td><p>计算实体的虚拟时间片 = calc_delta_fair(sched_slice(...), se)</p></td></tr>
+<tr><td><p>核心路径</p></td><td><p><code>sched_slice</code></p></td><td><p>fair.c:636</p></td><td><p>按权重比例从调度周期中切出实体的墙钟时间片 s = p * w/rw</p></td></tr>
+<tr><td><p>核心路径</p></td><td><p><code>__sched_period</code></p></td><td><p>fair.c:617</p></td><td><p>计算调度周期 p，任务过多时拉伸为 min_granularity * nr</p></td></tr>
+<tr><td><p>核心路径</p></td><td><p><code>calc_delta_fair</code></p></td><td><p>fair.c:601</p></td><td><p>将墙钟时间按权重折算为虚拟时间 vruntime 增量</p></td></tr>
+<tr><td><p>特性开关</p></td><td><p><code>sched_feat(START_DEBIT)</code></p></td><td><p>sched.h:988</p></td><td><p>静态分支判断是否启用新任务赊账</p></td></tr>
+<tr><td><p>特性开关</p></td><td><p><code>sched_feat(GENTLE_FAIR_SLEEPERS)</code></p></td><td><p>sched.h:988</p></td><td><p>静态分支判断是否启用温和睡眠者</p></td></tr>
+<tr><td><p>工具函数</p></td><td><p><code>max_vruntime</code></p></td><td><p>fair.c:438</p></td><td><p>安全比较两个 u64 vruntime 取大值（处理 64 位环绕）</p></td></tr>
+</tbody>
+</table>
+
+<h2 seq="auto">调用关系图</h2>
+
+<whiteboard type="mermaid">flowchart LR
+  W["try_to_wake_up / wake_up_process"] --> ACT["activate_task"]
+  ACT --> ENQT["enqueue_task_fair"]
+  ENQT --> ENQE["enqueue_entity"]
+  FORK["copy_process"] --> SFORK["sched_fork"]
+  SFORK --> TFF["task_fork_fair"]
+  SETSCH["__setscheduler"] --> SFF["switched_from_fair"]
+  ENQE --> PE["place_entity"]
+  TFF --> PE
+  SFF --> PE
+  PE --> SVS["sched_vslice"]
+  PE --> SF1["sched_feat START_DEBIT"]
+  PE --> SF2["sched_feat GENTLE_FAIR_SLEEPERS"]
+  PE --> MVR["max_vruntime"]
+  SVS --> SSL["sched_slice"]
+  SVS --> CDF["calc_delta_fair"]
+  SSL --> SPeriod["__sched_period"]</whiteboard>
+
+<h1 seq="auto">易错点 / 边界场景 / 设计权衡</h1>
+
+<ol>
+<li><b><code>initial</code> 参数语义易混淆</b>：<code>initial=1</code> 并不表示"第一次调用"，而是表示<b>新创建的实体</b>（fork 场景）。<code>initial=0</code> 表示<b>已存在的实体重新入队</b>（唤醒、切类）。两者走完全不同的补偿策略——新任务要"赊账"（+vslice），唤醒任务要"奖励"（-thresh）。</li>
+<li><b><code>min_vruntime</code> 单调递增是关键前提</b>：<code>place_entity</code> 以 <code>min_vruntime</code> 为基准，依赖 <code>update_min_vruntime</code> 保证它只增不减。如果 <code>min_vruntime</code> 会下降，以它为基准的 <code>vruntime</code> 计算会让实体"穿越到过去"，破坏公平性。</li>
+<li><b><code>max_vruntime</code> 的 64 位环绕处理</b>：<code>vruntime</code> 是 <code>u64</code>，直接用 <code>&gt;</code> 比较会因环绕出错。<code>max_vruntime</code> 内部用 <code>(s64)(vruntime - max_vruntime) &gt; 0</code> 判断，利用有符号减法正确处理环绕。这是 CFS 中所有 <code>vruntime</code> 比较的通用技巧（<code>entity_before</code> 同理）。</li>
+<li><b><code>START_DEBIT</code> 与 <code>sysctl_sched_child_runs_first</code> 的交互</b>：<code>task_fork_fair</code> 中 <code>place_entity(cfs_rq, se, 1)</code> 后，若开启 <code>child_runs_first</code>，会用 <code>swap(curr-&gt;vruntime, se-&gt;vruntime)</code> 把子任务换到前面并 <code>resched_curr</code>。这意味着 START_DEBIT 的赊账效果会被 child_runs_first 覆盖。</li>
+<li><b>睡眠补偿的截断是一种权衡</b>：完全不补偿会导致 I/O 密集型任务（频繁睡眠）响应迟缓；完全补偿（不截断）会导致长时间睡眠任务一唤醒就 vruntime 极小，长时间霸占 CPU。CFS 选择用 <code>sysctl_sched_latency</code>（默认 6ms）封顶，GENTLE_FAIR_SLEEPERS 再减半到 3ms，在响应性和公平性之间取折中。</li>
+<li><b><code>sched_vslice</code> 与组调度</b>：<code>sched_slice</code> 内部用 <code>for_each_sched_entity(se)</code> 向上遍历实体层级，逐层按权重折算时间片。组调度下，一个任务的"赊账量"取决于它在所有祖先组中的权重比例，而非仅自身权重。</li>
+<li><b><code>se-&gt;vruntime</code> 可能为 0 的边界</b>：刚 fork 的任务 <code>vruntime</code> 从父任务继承（<code>task_fork_fair</code> 中 <code>se-&gt;vruntime = curr-&gt;vruntime</code>），不会是 0。但 <code>switched_from_fair</code> 场景若任务此前从未在 fair 类运行过，<code>vruntime</code> 可能较小，<code>max_vruntime</code> 会用计算出的基准值覆盖它，避免异常小值。</li>
+</ol>
+
+<h1 seq="auto">核心源码片段</h1>
+
+<pre lang="c" caption="kernel/sched/fair.c:3030-3060 (Linux 4.1.6)"><code>static void
+place_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, int initial)
+{
+	u64 vruntime = cfs_rq->min_vruntime;
+
+	/*
+	 * The 'current' period is already promised to the current tasks,
+	 * however the extra weight of the new task will slow them down a
+	 * little, place the new task so that it fits in the slot that
+	 * stays open at the end.
+	 */
+	if (initial &amp;&amp; sched_feat(START_DEBIT))
+		vruntime += sched_vslice(cfs_rq, se);
+
+	/* sleeps up to a single latency don't count. */
+	if (!initial) {
+		unsigned long thresh = sysctl_sched_latency;
+
+		/*
+		 * Halve their sleep time's effect, to allow
+		 * for a gentler effect of sleepers:
+		 */
+		if (sched_feat(GENTLE_FAIR_SLEEPERS))
+			thresh &gt;&gt;= 1;
+
+		vruntime -= thresh;
+	}
+
+	/* ensure we never gain time by being placed backwards. */
+	se->vruntime = max_vruntime(se->vruntime, vruntime);
+}</code></pre>
