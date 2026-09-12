@@ -1,0 +1,45 @@
+{
+  "workflow": "linux-kernel-daily-study",
+  "kernel_version": "v4.19",
+  "kernel_source_remote": "https://raw.githubusercontent.com/torvalds/linux/v4.19/",
+  "local_analysis_repo": "https://github.com/chunlanse/linux-4.x.y",
+  "last_run_date": "2026-09-13",
+  "today_target": {
+    "name": "inactive_list_is_low",
+    "file": "mm/vmscan.c",
+    "lines": "2202-2251",
+    "subsystem": "mm",
+    "type": "function"
+  },
+  "subsystem_progress": {
+    "mm": {
+      "files_touched": 22,
+      "functions_analyzed_estimated": 250,
+      "today_added": ["mm/vmscan.c::inactive_list_is_low"]
+    },
+    "kernel/sched": {
+      "files_touched": 2,
+      "functions_analyzed_estimated": 12,
+      "today_added": []
+    },
+    "fs": {
+      "files_touched": 25,
+      "functions_analyzed_estimated": 130,
+      "today_added": []
+    },
+    "drivers": {
+      "files_touched": 1,
+      "functions_analyzed_estimated": 0,
+      "today_added": []
+    }
+  },
+  "total_analyzed_today": 1,
+  "history": [
+    {
+      "date": "2026-09-13",
+      "subsystem": "mm",
+      "function": "inactive_list_is_low",
+      "file": "mm/vmscan.c:2202-2251"
+    }
+  ]
+}
