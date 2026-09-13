@@ -1,0 +1,1 @@
+{"audience":"Linux内核学习者与驱动开发者","reader_task":"理解设备-驱动绑定（probe）的核心机制、调用链与失败回滚逻辑","genre_contract":"router.knowledge","adapter":null,"presentation_mode":"normal","visual_plan":{"reason":"需要用流程图展示 probe 的多阶段执行与失败回滚路径，用表格对比关键数据结构","blocks":[{"type":"whiteboard","min_count":2,"purpose":"展示 really_probe 核心逻辑流程与调用关系"}]}}

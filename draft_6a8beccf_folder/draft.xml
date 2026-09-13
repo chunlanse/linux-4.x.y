@@ -1,0 +1,262 @@
+<title>每日内核源码分析：really_probe（驱动设备-驱动绑定核心）</title>
+
+<p><b>日期</b>：2026-09-14　|　<b>子系统</b>：drivers（驱动模型核心）　|　<b>源文件</b>：drivers/base/dd.c:457-615　|　<b>内核版本</b>：Linux 4.19.325</p>
+
+<hr/>
+
+<h1 seq="auto">功能作用</h1>
+<p><code>really_probe</code> 是 Linux 设备驱动模型中<b>真正执行「设备-驱动绑定（probe）」</b>的核心函数。当总线匹配（<code>bus->match</code>）确认某个 <code>struct device_driver</code> 可以管理某个 <code>struct device</code> 之后，驱动核心会调用 <code>driver_probe_device()</code>，而后者在完成运行时电源管理（runtime PM）的 get/barrier 包装后，最终落到 <code>really_probe</code> 完成实际的绑定工作。</p>
+<p>它解决的核心问题是：<b>在调用驱动自己的 <code>probe</code> 回调之前，把设备所依赖的所有「基础设施」按正确顺序准备好（pinctrl 引脚、DMA 映射、sysfs 属性、电源域），并在 probe 失败时按相反顺序完整回滚</b>。</p>
+<p><b>典型被调用时机：</b></p>
+<ul>
+<li>设备注册时（<code>device_add</code> → <code>bus_probe_device</code> → <code>driver_probe_device</code> → <code>really_probe</code>），尝试为新设备寻找并绑定驱动。</li>
+<li>驱动注册时（<code>driver_register</code> → <code>driver_attach</code> → <code>bus_for_each_dev</code> → <code>__driver_attach</code> → <code>driver_probe_device</code> → <code>really_probe</code>），为新驱动寻找可管理的设备。</li>
+<li>异步探测（<code>__device_attach_async_helper</code>）路径同样经由 <code>driver_probe_device</code> 进入。</li>
+<li>延迟探测（<code>-EPROBE_DEFER</code>）重试时，由 <code>deferred_probe_work</code> 工作队列再次触发。</li>
+</ul>
+<p><b>返回值语义</b>：<code>1</code> 表示绑定成功（<code>driver_bound</code> 已执行）；<code>0</code> 表示 probe 失败但被核心忽略（允许下一个驱动尝试）；负值（如 <code>-EPROBE_DEFER</code>）表示需要延迟探测。</p>
+
+<h1 seq="auto">关键数据结构</h1>
+<table>
+<thead><tr><th background-color="light-gray"><p>结构</p></th><th background-color="light-gray"><p>关键字段 / 语义</p></th><th background-color="light-gray"><p>所在头文件</p></th></tr></thead>
+<tbody>
+<tr><td><p><code>struct device</code></p></td><td><p><code>dev->driver</code>（当前绑定的驱动，probe 前设为 drv，失败时回滚为 NULL）；<code>dev->bus</code>（所属总线）；<code>dev->pm_domain</code>（电源域，提供 activate/sync/dismiss 回调）；<code>dev->devres_head</code>（设备资源链表，probe 前必须为空）；<code>dev->p->knode_driver</code>（挂入驱动设备链表的节点）</p></td><td><p>include/linux/device.h</p></td></tr>
+<tr><td><p><code>struct device_driver</code></p></td><td><p><code>drv->probe</code> / <code>drv->remove</code>（驱动提供的探测/移除回调）；<code>drv->bus</code>（所属总线）；<code>drv->probe_type</code>（enum probe_type，同步/异步策略）；<code>drv->suppress_bind_attrs</code>（是否禁用 sysfs bind/unbind）；<code>drv->owner</code>（模块所有者）</p></td><td><p>include/linux/device.h:277</p></td></tr>
+<tr><td><p><code>struct bus_type</code></p></td><td><p><code>bus->probe</code> / <code>bus->remove</code>（总线级 probe/remove，优先级高于 driver 级）；<code>bus->match</code>（匹配函数）；<code>bus->p->bus_notifier</code>（总线通知链）</p></td><td><p>include/linux/device.h:118</p></td></tr>
+<tr><td><p><code>enum probe_type</code></p></td><td><p>PROBE_DEFAULT_STRATEGY / PROBE_PREFER_ASYNCHRONOUS / PROBE_FORCE_SYNCHRONOUS</p></td><td><p>include/linux/device.h:235</p></td></tr>
+<tr><td><p>全局状态</p></td><td><p><code>defer_all_probes</code>（全局强制延迟探测）；<code>deferred_trigger_count</code>（原子计数）；<code>probe_count</code>（正在进行的 probe 数）；<code>probe_waitqueue</code>（等待队列）</p></td><td><p>drivers/base/dd.c</p></td></tr>
+</tbody>
+</table>
+
+<h1 seq="auto">核心逻辑流程图</h1>
+<whiteboard type="mermaid">flowchart TD
+  A[入口 really_probe dev, drv] --> B{defer_all_probes?}
+  B -->|是| B1[driver_deferred_probe_add 返回 -EPROBE_DEFER]
+  B -->|否| C[device_links_check_suppliers]
+  C -->|= -EPROBE_DEFER| C1[driver_deferred_probe_add_trigger]
+  C -->|其他错误| C2[直接返回错误]
+  C -->|成功| D[probe_count++ 检查 devres_head 必须为空]
+  D --> E[dev->driver = drv]
+  E --> F[pinctrl_bind_pins]
+  F -->|失败| Z[probe_failed 回滚]
+  F -->|成功| G[dma_configure]
+  G -->|失败| Z
+  G -->|成功| H[driver_sysfs_add]
+  H -->|失败| Z
+  H -->|成功| I{pm_domain-&gt;activate?}
+  I -->|有| I1[调用 activate]
+  I1 -->|失败| Z
+  I -->|无/成功| J{bus-&gt;probe?}
+  J -->|有| J1[bus-&gt;probe dev]
+  J -->|无| J2[drv-&gt;probe dev]
+  J1 -->|失败| Z
+  J2 -->|失败| Z
+  J1 -->|成功| K{DEBUG_TEST_DRIVER_REMOVE 且未 suppress_bind_attrs?}
+  J2 -->|成功| K
+  K -->|是| K1[执行 remove + 释放资源 goto re_probe]
+  K -->|否| L[pinctrl_init_done]
+  K1 --> E
+  L --> M{pm_domain-&gt;sync?}
+  M -->|有| M1[调用 sync]
+  M -->|无| N[driver_bound]
+  M1 --> N
+  N --> O[ret = 1 goto done]
+  Z --> Z1[清理: device_links_no_driver devres_release_all dma_deconfigure driver_sysfs_remove dev-&gt;driver=NULL pm_runtime_reinit]
+  Z1 --> Z2{ret == -EPROBE_DEFER?}
+  Z2 -->|是| Z3[driver_deferred_probe_add_trigger]
+  Z2 -->|否| Z4[打印警告 ret = 0]
+  Z3 --> P[probe_count-- wake_up_all probe_waitqueue]
+  Z4 --> P
+  O --> P
+  P --> Q[返回 ret]</whiteboard>
+
+<h2 seq="auto">关键决策点解读</h2>
+<ol>
+<li><b>defer_all_probes 全局短路</b>：由 <code>device_defer_all_probes_enable()</code> 设置，用于在某些早期阶段（如 IRQ 域未就绪）强制所有 probe 延迟，避免资源未准备好时失败。</li>
+<li><b>供应商链路检查 device_links_check_suppliers</b>：设备可能依赖 supplier 设备（如 regulator、clock、phy），若 supplier 尚未就绪则返回 <code>-EPROBE_DEFER</code>，本设备进入延迟队列。</li>
+<li><b>devres_head 非空检查</b>：正常情况下 probe 前资源链表应为空；若非空说明上次 probe 残留，直接 <code>-EBUSY</code> 避免资源泄漏。</li>
+<li><b>probe 回调优先级：bus->probe 优先于 drv->probe</b>：总线（如 platform、pci）可以统一实现 probe 入口，再分发到具体驱动；若总线未提供则使用驱动自带的 <code>drv->probe</code>。</li>
+<li><b>test_remove 调试回路</b>：开启 <code>CONFIG_DEBUG_TEST_DRIVER_REMOVE</code> 时，probe 成功后立即调用 remove 并释放全部资源，然后 <code>goto re_probe</code> 重新探测一次，用于验证驱动的 remove 路径能否正确清理资源。</li>
+<li><b>失败回滚的「逆序」原则</b>：成功路径依次执行 pinctrl→dma→sysfs→pm_domain→probe；失败路径按相反顺序清理，保证任何中间步骤失败都不会留下半初始化状态。</li>
+</ol>
+
+<h1 seq="auto">调用关系</h1>
+
+<h2 seq="auto">调用者（who calls me）</h2>
+<p><code>really_probe</code> 是 <code>static</code> 函数，仅在 <code>drivers/base/dd.c</code> 内部被两处调用：</p>
+<table>
+<thead><tr><th background-color="light-gray"><p>调用方</p></th><th background-color="light-gray"><p>所在文件</p></th><th background-color="light-gray"><p>调用场景</p></th></tr></thead>
+<tbody>
+<tr><td><p><code>driver_probe_device</code></p></td><td><p>drivers/base/dd.c:676</p></td><td><p>公开的探测入口，完成 runtime PM get/barrier 后调用 really_probe，是主路径</p></td></tr>
+<tr><td><p><code>really_probe_debug</code></p></td><td><p>drivers/base/dd.c:607</p></td><td><p>initcall_debug 开启时的包装，用 ktime_get 计时并打印 probe 耗时</p></td></tr>
+</tbody>
+</table>
+<p>上层调用 <code>driver_probe_device</code> 的入口（即 really_probe 的间接调用者）：</p>
+<table>
+<thead><tr><th background-color="light-gray"><p>间接调用方</p></th><th background-color="light-gray"><p>所在文件</p></th><th background-color="light-gray"><p>场景</p></th></tr></thead>
+<tbody>
+<tr><td><p><code>__device_attach_driver</code></p></td><td><p>drivers/base/dd.c:768</p></td><td><p>device_attach 遍历总线上的驱动，匹配成功后调用</p></td></tr>
+<tr><td><p><code>bus_probe_device</code></p></td><td><p>drivers/base/dd.c:926</p></td><td><p>设备被添加到总线时，尝试绑定已有驱动</p></td></tr>
+<tr><td><p><code>driver_attach</code> → <code>__driver_attach</code></p></td><td><p>drivers/base/bus.c:222</p></td><td><p>驱动注册时，遍历总线上的设备尝试绑定</p></td></tr>
+</tbody>
+</table>
+
+<h2 seq="auto">被调用者（who I call）</h2>
+<p><b>核心路径调用：</b></p>
+<table>
+<thead><tr><th background-color="light-gray"><p>函数</p></th><th background-color="light-gray"><p>所在文件</p></th><th background-color="light-gray"><p>作用</p></th></tr></thead>
+<tbody>
+<tr><td><p><code>device_links_check_suppliers</code></p></td><td><p>drivers/base/core.c:565</p></td><td><p>检查设备依赖的 supplier 是否就绪，未就绪返回 -EPROBE_DEFER</p></td></tr>
+<tr><td><p><code>pinctrl_bind_pins</code></p></td><td><p>drivers/base/pinctrl.c:21</p></td><td><p>在 probe 前绑定引脚控制（pinctrl）状态</p></td></tr>
+<tr><td><p><code>dma_configure</code></p></td><td><p>drivers/base/dma-mapping.c</p></td><td><p>配置设备的 DMA 能力（掩码、一致性等）</p></td></tr>
+<tr><td><p><code>driver_sysfs_add/remove</code></p></td><td><p>drivers/base/dd.c:373 / :405</p></td><td><p>创建/移除驱动与设备关联的 sysfs 属性</p></td></tr>
+<tr><td><p><code>pm_domain-&gt;activate/sync/dismiss</code></p></td><td><p>drivers/base/power/domain.c</p></td><td><p>电源域的激活/同步/撤销回调</p></td></tr>
+<tr><td><p><code>bus-&gt;probe / drv-&gt;probe</code></p></td><td><p>各总线/驱动实现</p></td><td><p>真正的驱动探测回调，由驱动开发者实现</p></td></tr>
+<tr><td><p><code>driver_bound</code></p></td><td><p>drivers/base/dd.c</p></td><td><p>绑定成功：将设备加入驱动的 klist、发 BUS_NOTIFY_BOUND_DRIVER 通知、触发 KOBJ_BIND uevent</p></td></tr>
+<tr><td><p><code>pinctrl_init_done</code></p></td><td><p>drivers/base/pinctrl.c</p></td><td><p>通知 pinctrl 子系统 probe 完成</p></td></tr>
+</tbody>
+</table>
+<p><b>辅助 / 清理调用：</b><code>devres_release_all</code>（释放 devres 资源）、<code>dma_deconfigure</code>（撤销 DMA 配置）、<code>device_links_no_driver</code>、<code>device_links_driver_bound</code>、<code>pm_runtime_reinit</code>、<code>driver_deferred_probe_add_trigger</code>、<code>blocking_notifier_call_chain</code>（发总线通知）、<code>atomic_inc/dec(&amp;probe_count)</code> + <code>wake_up_all(&amp;probe_waitqueue)</code>。</p>
+
+<h2 seq="auto">调用关系图</h2>
+<whiteboard type="mermaid">flowchart LR
+  DA["device_attach / bus_probe_device drivers/base/dd.c"] --> DPD["driver_probe_device drivers/base/dd.c:658"]
+  DATTACH["driver_attach drivers/base/bus.c"] --> DPD
+  DPD --> RPD["really_probe_debug initcall_debug drivers/base/dd.c:600"]
+  DPD --> RP["really_probe drivers/base/dd.c:457"]
+  RPD --> RP
+  RP --> DLC["device_links_check_suppliers drivers/base/core.c:565"]
+  RP --> PB["pinctrl_bind_pins drivers/base/pinctrl.c:21"]
+  RP --> DMA["dma_configure drivers/base/dma-mapping.c"]
+  RP --> SYSFS["driver_sysfs_add/remove drivers/base/dd.c"]
+  RP --> PMD["pm_domain activate/sync/dismiss"]
+  RP --> PROBE["bus-&gt;probe / drv-&gt;probe"]
+  RP --> DB["driver_bound drivers/base/dd.c"]
+  RP --> DEVRES["devres_release_all drivers/base/devres.c"]
+  RP --> DEFER["driver_deferred_probe_add_trigger"]</whiteboard>
+
+<h1 seq="auto">易错点 / 边界场景 / 设计权衡</h1>
+<ol>
+<li><b>dev-&gt;driver = drv 的设置时机很微妙</b>：在调用 pinctrl_bind_pins / dma_configure 之前就把 dev-&gt;driver 指向 drv，因为这些子系统的回调内部可能需要通过 dev-&gt;driver 访问驱动信息；而 probe 失败时必须在清理末尾把 dev-&gt;driver = NULL，否则会留下「设备已绑定但 probe 失败」的不一致状态。</li>
+<li><b>-EPROBE_DEFER 的特殊语义</b>：probe 回调返回 -EPROBE_DEFER 时，really_probe 不会打印警告（区别于其他错误），而是调用 driver_deferred_probe_add_trigger 把设备加入延迟队列，等待依赖就绪后由 deferred_probe_work 重试。驱动开发者只需返回 -EPROBE_DEFER 即可，无需自行实现重试。</li>
+<li><b>失败时 ret = 0 的设计</b>：probe_failed 路径末尾除 -EPROBE_DEFER 外都把 ret 置为 0 返回。这是故意的——调用者把返回值 0 当作「未匹配成功，继续尝试下一个驱动」，避免一个驱动 probe 失败就中断整个匹配流程。</li>
+<li><b>test_remove 调试回路的 goto 重入</b>：CONFIG_DEBUG_TEST_DRIVER_REMOVE 开启时，probe 成功后会执行 remove + 释放全部资源，然后 goto re_probe 重新走一遍 probe。这要求驱动的 remove 必须能完全释放 probe 分配的所有资源，否则第二次 probe 会因资源残留失败。</li>
+<li><b>probe_count 与 wait_for_device_probe 的同步</b>：really_probe 入口 atomic_inc(&amp;probe_count)，出口 done 标签 atomic_dec + wake_up_all。wait_for_device_probe() 通过 wait_event(probe_waitqueue, atomic_read(&amp;probe_count) == 0) 等待所有 probe 完成，是引导阶段的同步点。</li>
+<li><b>锁的假设</b>：really_probe 要求调用者持有 dev 的锁（device_lock），对 USB 接口设备还要求持有 parent 的锁。函数内部不再加全局锁，而是依赖 pinctrl/dma/devres 等子系统各自的锁保护。</li>
+</ol>
+
+<h1 seq="auto">核心源码片段</h1>
+<pre lang="c" caption="drivers/base/dd.c:457-615 (Linux 4.19.325)"><code>static int really_probe(struct device *dev, struct device_driver *drv)
+{
+        int ret = -EPROBE_DEFER;
+        int local_trigger_count = atomic_read(&amp;deferred_trigger_count);
+        bool test_remove = IS_ENABLED(CONFIG_DEBUG_TEST_DRIVER_REMOVE) &amp;&amp;
+                           !drv-&gt;suppress_bind_attrs;
+
+        if (defer_all_probes) {
+                dev_dbg(dev, "Driver %s force probe deferral\n", drv-&gt;name);
+                driver_deferred_probe_add(dev);
+                return ret;
+        }
+
+        ret = device_links_check_suppliers(dev);
+        if (ret == -EPROBE_DEFER)
+                driver_deferred_probe_add_trigger(dev, local_trigger_count);
+        if (ret)
+                return ret;
+
+        atomic_inc(&amp;probe_count);
+        if (!list_empty(&amp;dev-&gt;devres_head)) {
+                dev_crit(dev, "Resources present before probing\n");
+                ret = -EBUSY;
+                goto done;
+        }
+
+re_probe:
+        dev-&gt;driver = drv;
+
+        ret = pinctrl_bind_pins(dev);
+        if (ret)
+                goto pinctrl_bind_failed;
+
+        ret = dma_configure(dev);
+        if (ret)
+                goto probe_failed;
+
+        if (driver_sysfs_add(dev)) {
+                goto probe_failed;
+        }
+
+        if (dev-&gt;pm_domain &amp;&amp; dev-&gt;pm_domain-&gt;activate) {
+                ret = dev-&gt;pm_domain-&gt;activate(dev);
+                if (ret)
+                        goto probe_failed;
+        }
+
+        if (dev-&gt;bus-&gt;probe) {
+                ret = dev-&gt;bus-&gt;probe(dev);
+                if (ret)
+                        goto probe_failed;
+        } else if (drv-&gt;probe) {
+                ret = drv-&gt;probe(dev);
+                if (ret)
+                        goto probe_failed;
+        }
+
+        if (test_remove) {
+                test_remove = false;
+                if (dev-&gt;bus-&gt;remove)
+                        dev-&gt;bus-&gt;remove(dev);
+                else if (drv-&gt;remove)
+                        drv-&gt;remove(dev);
+                devres_release_all(dev);
+                driver_sysfs_remove(dev);
+                dev-&gt;driver = NULL;
+                dev_set_drvdata(dev, NULL);
+                if (dev-&gt;pm_domain &amp;&amp; dev-&gt;pm_domain-&gt;dismiss)
+                        dev-&gt;pm_domain-&gt;dismiss(dev);
+                pm_runtime_reinit(dev);
+                goto re_probe;
+        }
+
+        pinctrl_init_done(dev);
+        if (dev-&gt;pm_domain &amp;&amp; dev-&gt;pm_domain-&gt;sync)
+                dev-&gt;pm_domain-&gt;sync(dev);
+
+        driver_bound(dev);
+        ret = 1;
+        goto done;
+
+probe_failed:
+        if (dev-&gt;bus)
+                blocking_notifier_call_chain(&amp;dev-&gt;bus-&gt;p-&gt;bus_notifier,
+                                             BUS_NOTIFY_DRIVER_NOT_BOUND, dev);
+pinctrl_bind_failed:
+        device_links_no_driver(dev);
+        devres_release_all(dev);
+        dma_deconfigure(dev);
+        driver_sysfs_remove(dev);
+        dev-&gt;driver = NULL;
+        dev_set_drvdata(dev, NULL);
+        if (dev-&gt;pm_domain &amp;&amp; dev-&gt;pm_domain-&gt;dismiss)
+                dev-&gt;pm_domain-&gt;dismiss(dev);
+        pm_runtime_reinit(dev);
+        dev_pm_set_driver_flags(dev, 0);
+
+        switch (ret) {
+        case -EPROBE_DEFER:
+                driver_deferred_probe_add_trigger(dev, local_trigger_count);
+                break;
+        case -ENODEV:
+        case -ENXIO:
+                break;
+        default:
+                printk(KERN_WARNING "%s: probe of %s failed with error %d\n",
+                       drv-&gt;name, dev_name(dev), ret);
+        }
+        ret = 0;
+done:
+        atomic_dec(&amp;probe_count);
+        wake_up_all(&amp;probe_waitqueue);
+        return ret;
+}</code></pre>

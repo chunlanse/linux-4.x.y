@@ -1,0 +1,19 @@
+{
+  "last_updated": "2026-09-14",
+  "total_analyzed": 893,
+  "by_subsystem": {
+    "mm": 230,
+    "kernel/sched": 13,
+    "drivers": 1,
+    "fs": 221,
+    "kernel": 89,
+    "init": 23,
+    "ipc": 1,
+    "net": 1,
+    "block": 1,
+    "security": 2,
+    "lib": 4
+  },
+  "daily_workflow_entries": 1,
+  "notes": "drivers 子系统覆盖率最低（仅 really_probe），后续优先从 drivers/ 选取核心函数。"
+}
