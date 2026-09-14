@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "kernel_version": "v4.4",
+  "total": 1,
+  "by_subsystem": {
+    "mm": 0,
+    "kernel/sched": 1,
+    "drivers": 0,
+    "fs": 0,
+    "kernel": 0,
+    "ipc": 0,
+    "net": 0,
+    "block": 0,
+    "security": 0,
+    "lib": 0
+  },
+  "last_update": "2026-09-15",
+  "history": [
+    {
+      "date": "2026-09-15",
+      "subsystem": "kernel/sched",
+      "name": "wake_up_new_task",
+      "file": "kernel/sched/core.c:2372-2406"
+    }
+  ]
+}
