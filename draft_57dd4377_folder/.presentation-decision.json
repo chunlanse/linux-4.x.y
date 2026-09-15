@@ -1,0 +1,1 @@
+{"audience":"Linux 内核源码自学者","reader_task":"理解 CFS 完全公平调度器核心函数 update_curr 的功能、关键数据结构、执行流程与上下游调用关系，作为每日内核学习笔记","genre_contract":"router.knowledge","adapter":null,"presentation_mode":"rich","visual_plan":{"reason":"核心逻辑流程图与调用关系图都是流程/依赖关系，最适合用白板表达","blocks":[{"type":"whiteboard","min_count":2,"purpose":"展示 update_curr 核心执行流程与上下游调用关系"}]}}

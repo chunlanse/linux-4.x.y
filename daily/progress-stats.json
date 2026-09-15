@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "total_analyzed": 1,
+  "generated_at": "2026-09-16",
+  "by_subsystem": {
+    "kernel/sched": {
+      "files_covered": ["kernel/sched/fair.c"],
+      "items": [
+        {
+          "date": "2026-09-16",
+          "name": "update_curr",
+          "file": "kernel/sched/fair.c",
+          "line_start": 798,
+          "line_end": 831,
+          "type": "function",
+          "linux_version": "v4.9"
+        }
+      ]
+    }
+  }
+}
