@@ -1,0 +1,21 @@
+{
+  "total_analyzed": 893,
+  "last_updated": "2026-09-17",
+  "by_subsystem": {
+    "mm": 230,
+    "fs": 221,
+    "arch": 127,
+    "init": 23,
+    "kernel/sched": 13,
+    "lib": 4,
+    "block": 1,
+    "drivers": 1,
+    "ipc": 1,
+    "security": 2
+  },
+  "priority_subsystems": {
+    "mm": { "analyzed": 230, "note": "核心函数已高度覆盖，建议转向次级函数/结构" },
+    "kernel/sched": { "analyzed": 13, "note": "核心函数仍有大量未覆盖（如 check_preempt_curr, pick_next_task 等）" },
+    "drivers": { "analyzed": 1, "note": "几乎空白，优先分析 device_add/driver_register/bus_register 等驱动模型核心" }
+  }
+}
