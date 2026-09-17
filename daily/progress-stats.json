@@ -1,0 +1,17 @@
+{
+  "last_updated": "2026-09-18",
+  "total_analyzed": 1,
+  "by_subsystem": {
+    "kernel/sched": 1,
+    "mm": 0,
+    "fs": 0,
+    "drivers": 0,
+    "kernel": 0,
+    "block": 0,
+    "ipc": 0,
+    "net": 0,
+    "security": 0,
+    "lib": 0
+  },
+  "note": "此统计仅记录本 daily 工作流创建以来的新增分析。工作区中已存在大量历史分析笔记（mm/、fs/、kernel/ 等），未计入此累计。"
+}

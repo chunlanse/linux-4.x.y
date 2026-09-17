@@ -80,6 +80,10 @@ p->prio = effective_prio(p);
 
 **[scheduler_tick](./core.c/scheduler_tick.md)**
 
+在 `scheduler_tick` 中，CFS 调度类的 `task_tick_fair` 最终调用 `entity_tick`，进而调用 **`update_curr`** 来更新当前任务的虚拟运行时间 vruntime——这是 CFS 「按权重公平分享 CPU」 的核心机制。
+
+**[update_curr](./fair.c/update_curr.md)**
+
 2. 主调度器
 
 在内核中的许多地方，如果要将CPU分配给与当前活动进程不同的另一个进程，都会直接调用主调度器函数（schedule）。在从系统调用返回之后，内核也会检查当前进程是否设置了重调度标志TIF_NEED_RESCHED，例如，前述的scheduler_tick就会设置该标志。如果是这样，则内核会调用schedule。该函数假定当前活动进程一定会被另一个进程取代。在详细论述schedule之前，需要说明一下__sched前缀。该前缀用于可能调用schedule的函数，包括schedule自身。其声明如下所示：
