@@ -1,0 +1,23 @@
+{
+  "last_updated": "2026-09-19",
+  "total_analyzed": 511,
+  "by_subsystem": {
+    "mm": 230,
+    "fs": 221,
+    "init": 23,
+    "kernel/sched": 15,
+    "kernel/locking": 9,
+    "lib": 4,
+    "block": 1,
+    "ipc": 1,
+    "net": 1,
+    "security": 2,
+    "drivers": 1
+  },
+  "today": {
+    "date": "2026-09-19",
+    "subsystem": "kernel/sched",
+    "target": "check_preempt_curr",
+    "file": "kernel/sched/core.c"
+  }
+}
