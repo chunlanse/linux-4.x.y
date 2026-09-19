@@ -1,0 +1,17 @@
+{
+  "total_analyzed": 1,
+  "by_subsystem": {
+    "kernel/sched": 1,
+    "mm": 0,
+    "drivers": 0,
+    "fs": 0,
+    "kernel": 0,
+    "ipc": 0,
+    "net": 0,
+    "block": 0,
+    "security": 0,
+    "lib": 0
+  },
+  "last_updated": "2026-09-20",
+  "notes": "本统计仅记录通过每日工作流分析的条目。仓库中已有的历史分析笔记（mm/fs 等）不计入此进度。"
+}
