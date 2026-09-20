@@ -1,0 +1,1 @@
+{"last_updated": "2026-09-20", "total_analyzed": 724, "by_subsystem": {"mm": 241, "fs": 233, "include": 194, "kernel": 98, "drivers": 2, "lib": 5, "security": 3, "block": 2, "ipc": 1}, "daily_targets": {"2026-09-20": {"subsystem": "drivers/base", "name": "device_add", "file": "drivers/base/core.c"}}}
