@@ -1,0 +1,28 @@
+{
+  "updated": "2026-09-22",
+  "total_analyzed": 894,
+  "by_subsystem": {
+    "mm": 230,
+    "fs": 221,
+    "include": 182,
+    "kernel": 90,
+    "kernel/sched": 15,
+    "lib": 4,
+    "security": 2,
+    "net": 1,
+    "ipc": 1,
+    "block": 1,
+    "drivers": 0
+  },
+  "priority_coverage": {
+    "mm": "高覆盖 (>70%)",
+    "kernel/sched": "中覆盖",
+    "drivers": "未覆盖"
+  },
+  "latest": {
+    "date": "2026-09-22",
+    "subsystem": "kernel/sched",
+    "function": "pick_next_task",
+    "file": "kernel/sched/core.c"
+  }
+}
