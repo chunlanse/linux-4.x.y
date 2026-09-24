@@ -1,0 +1,29 @@
+{
+  "total": 866,
+  "by_subsystem": {
+    "mm": 236,
+    "include/linux": 167,
+    "fs": 128,
+    "fs/ext4": 80,
+    "kernel": 69,
+    "arch/arm/mm": 45,
+    "arch/arm/include/asm": 44,
+    "init": 25,
+    "include/uapi/linux": 16,
+    "kernel/sched": 15,
+    "arch/arm/kernel": 10,
+    "include/asm-generic": 7,
+    "lib": 5,
+    "fs/ramfs": 4,
+    "arch/arm64/mm": 3,
+    "arch/arm/include/uapi/asm": 2,
+    "fs/jbd2": 2,
+    "include/net": 2,
+    "kernel/locking": 1,
+    "arch/arm/include/asm/mach": 1,
+    "drivers/tty": 1,
+    "include/asm-generic/bitopts": 1,
+    "net/core": 1,
+    "ipc": 1
+  }
+}
