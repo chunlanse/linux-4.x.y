@@ -1,0 +1,36 @@
+{
+  "last_updated": "2026-09-28",
+  "total_unique_analyzed": 883,
+  "daily_archive_root": "daily/",
+  "by_subsystem": {
+    "mm": 230,
+    "fs": 221,
+    "include": 182,
+    "arch": 127,
+    "kernel": 90,
+    "init": 23,
+    "lib": 4,
+    "security": 2,
+    "net": 1,
+    "ipc": 1,
+    "block": 1,
+    "boot": 1,
+    "drivers": 0,
+    "debug": 0
+  },
+  "priority_subsystems_detail": {
+    "mm": 230,
+    "kernel/sched": 14,
+    "drivers": 0,
+    "fs": 221
+  },
+  "history": [
+    {
+      "date": "2026-09-28",
+      "subsystem": "kernel/sched",
+      "target": "pick_next_task_fair",
+      "file": "kernel/sched/fair.c:6598-6729",
+      "type": "function"
+    }
+  ]
+}
