@@ -1,0 +1,1 @@
+{"audience":"Linux 内核开发者 / 学习者","reader_task":"理解 vm_insert_mixed 的功能、数据结构、执行流程与调用关系，建立 VMA 页表插入家族的完整心智模型","genre_contract":"knowledge","adapter":null,"presentation_mode":"normal","visual_plan":{"reason":"函数的架构分支、pfn_t flags 语义和调用者-被调用者关系适合用画板 / 表格表达","blocks":[{"type":"whiteboard","min_count":1,"purpose":"展示核心逻辑流程图"}]}}
