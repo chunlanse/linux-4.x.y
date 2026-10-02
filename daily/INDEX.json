@@ -1,0 +1,4737 @@
+[
+  {
+    "subsystem": "ipc",
+    "file": "msgutil.c",
+    "func": "init_ipc_ns"
+  },
+  {
+    "subsystem": "samples",
+    "file": "kernel",
+    "func": "README"
+  },
+  {
+    "subsystem": "samples",
+    "file": "fs",
+    "func": "README"
+  },
+  {
+    "subsystem": "samples",
+    "file": "fs",
+    "func": "README"
+  },
+  {
+    "subsystem": "samples",
+    "file": "fs",
+    "func": "README"
+  },
+  {
+    "subsystem": "samples",
+    "file": "mm",
+    "func": "README"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "pid.c",
+    "func": "find_task_by_pid_ns"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "pid.c",
+    "func": "pid_hash"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "pid.c",
+    "func": "pid_nr_ns"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "pid.c",
+    "func": "find_pid_ns"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "pid.c",
+    "func": "alloc_pid"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "pid.c",
+    "func": "attach_pid"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "pid.c",
+    "func": "pid_vnr"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "pid.c",
+    "func": "pid_task"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "pid.c",
+    "func": "init_pid_ns"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "smp.c",
+    "func": "setup_nr_cpu_ids"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "user.c",
+    "func": "init_user_ns"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "nsproxy.c",
+    "func": "init_nsproxy"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "nsproxy.c",
+    "func": "setns"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "README"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "__schedule"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "sched_fork"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "ttwu_do_activate"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "effective_prio"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "README"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "ttwu_queue"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "scheduler_tick"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "try_to_wake_up"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "wake_up_process"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "ttwu_activate"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "context_switch"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "set_load_weight"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "struct_sched_class"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "sched",
+    "func": "struct_rq"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "alloc_unbound_pwq"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "__alloc_workqueue_key"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "get_unbound_pool"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "workqueue_init_early"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "workqueue_struct"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "wq_worker_waking_up"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "start_flush_work"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "wake_up_worker"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "worker_thread"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "workqueue_init"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "create_worker"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "wq_worker_sleeping"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "alloc_and_link_pwqs"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "alloc_workqueue_attrs"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "worker_pool"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "flush_work"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "init_worker_pool"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "apply_wqattrs_prepare"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "pool_workqueue"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "apply_workqueue_attrs"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "process_one_work"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "init_pwq"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "worker_attach_to_pool"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue.c",
+    "func": "__queue_work"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "cgroup.c",
+    "func": "cgroup_init_early"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "workqueue_internal.h",
+    "func": "worker"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "trace",
+    "func": "README"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "trace",
+    "func": "README"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "locking",
+    "func": "spin_lock"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "locking",
+    "func": "semaphore"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "locking",
+    "func": "README"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "locking",
+    "func": "barrier"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "locking",
+    "func": "rw_lock"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "locking",
+    "func": "atomic"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "locking",
+    "func": "rcu"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "locking",
+    "func": "big_kernel_lock"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "locking",
+    "func": "mutex"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "locking",
+    "func": "lockdep_init"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "params.c",
+    "func": "next_arg"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "params.c",
+    "func": "parse_args"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "params.c",
+    "func": "parse_one"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "percpu.c",
+    "func": "setup_per_cpu_areas"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "mm_init"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "dup_task_struct"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "alloc_task_struct_node"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "unshare"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "alloc_thread_info_node"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "_do_fork"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "arch_dup_task_struct"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "mm_alloc_pgd"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "copy_process"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "mm_alloc"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "kernel_thread"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "set_mm_exe_file"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "do_fork"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "set_task_stack_end_magic"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "sys_fork"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "allocate_mm"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "fork.c",
+    "func": "clone"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "bounds.c",
+    "func": "MAX_NR_ZONES"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "cpu.c",
+    "func": "cpu_online_bits"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "cpu.c",
+    "func": "set_cpu_online"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "kthread.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "kthread.c",
+    "func": "kthread_create_on_node"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "kthread.c",
+    "func": "kthreadd"
+  },
+  {
+    "subsystem": "kernel",
+    "file": "kthread.c",
+    "func": "tsk_fork_get_node"
+  },
+  {
+    "subsystem": "net",
+    "file": "core",
+    "func": "init_net"
+  },
+  {
+    "subsystem": "include",
+    "file": "net",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "net",
+    "func": "struct_net"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "kmalloc"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "KMEM_CACHE"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "kmem_cache_alloc_node"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "kzalloc"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_file_system_type"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_address_space_operations"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_address_space"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_super_block"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_kiocb"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "init_sync_kiocb"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "generic_write_sync"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_block_device"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_file_ra_state"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_iattr"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_inode"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_file_operations"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_inode_operations"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_file"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_filename"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "get_file"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_super_operations"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_uts_namespace"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "PFN_XXX"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_path"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "MAX_ZONES_PER_ZONELIST"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "enum_zone_type"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_zonelist_cache"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_zone"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_per_cpu_pages"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "MAX_ORDER"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "enum_zone_watermarks"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_zoneref"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "NODE_DATA"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_zonelist"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_per_cpu_pageset"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "enum_zone_flags"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "populated_zone"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "MAX_ZONELISTS"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_lruvec"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "pg_data_t"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_free_area"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "MIGRATE_TYPES"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_linux_binfmt"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_linux_binprm"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "node_distance"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "enum_pageflags"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "PageBuddy"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "DEFINE_PER_CPU_SECTION"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__PCPU_ATTRS"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "DEFINE_PER_CPU"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "MAX_NUMNODES"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_vm_struct"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_vmap_area"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_vm_struct.flags"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "DIV_ROUND_UP"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "vm_unmapped_area"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "randomize_va_space"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_vm_area_struct.vm_flags"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_vm_unmapped_area_info"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_vm_operations_struct"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "do_mmap_pgoff"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__init_task_data"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "INIT_TASK"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "wait_on_page_xxx"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "find_get_page"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_pid_namespace"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "hlist_bl_for_each_entry_rcu"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "nodes_clear"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "for_each_node_mask"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "for_each_node_state"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "nodemask_t"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "for_each_online_node"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "enum_node_states"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_user_namespace"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_ipc_namespace"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "rootfs_initcall"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_obs_kernel_param"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__ref"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__define_initcall"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "flags"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "gfp_zone"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "GFP_ZONE_TABLE"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "mask"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "alloc_page"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "node_zonelist"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__free_page"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "alloc_pages"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "gfpflags_to_migratetype"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__get_free_page"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__alloc_pages_node"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "free_page"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "alloc_pages_node"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__alloc_pages"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__get_dma_pages"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_fs_struct"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "current_limit"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "max"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "for_each_memblock"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "for_each_mem_range"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_memblock_type"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "for_each_reserved_mem_region"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_memblock"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_memblock_region"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__initdata_memblock"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "for_each_free_mem_range"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "BIT_XXX"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "bootmem_data_t"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "end_of_stack"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "task_stack_page"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "task_thread_info"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_task_struct"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "task_pgrp"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "copy_thread_tls"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "union_thread_union"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "task_pid"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_sched_entity"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_dentry_operations"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_dentry"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_qstr"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_mm_struct"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_page"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_vm_area_struct"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "mm_init_cpumask"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "enum_pageblock_bits"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "pageblock_order"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_vfsmount.mnt_flags"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_vfsmount"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "SYSCALL_DEFINE"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "alloc_workqueue"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "work_struct"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_nsproxy"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_kmem_cache"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "iov_iter_count"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_iov_iter"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "ZONES_SHIFT"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_fd"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__to_fd"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_semaphore"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_mutex"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_files_struct"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "NR_OPEN_DEFAULT"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_fdtable"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "__fcheck_files"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "local_irq_disable"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "local_irq_enable"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "to_cpumask"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "cpumask_check"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_cpumask"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "cpumask_set_cpu"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "cpumask_bits"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_upid"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "enum_pid_type"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_pid"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "struct_pid_link"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "pid_nr"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "DECLARE_BITMAP"
+  },
+  {
+    "subsystem": "include",
+    "file": "linux",
+    "func": "dev_t"
+  },
+  {
+    "subsystem": "include",
+    "file": "trace",
+    "func": "README"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "struct_new_utsname"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "e_type"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "elf_base_types"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "struct_elf64_hdr"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "struct_elf32_hdr"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "struct_elf64_phdr"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "struct_elf32_shdr"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "sh_type"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "e_ident"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "struct_elf64_shdr"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "p_type"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "struct_elf32_phdr"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "p_flags"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "sh_flags"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "struct_rlimit"
+  },
+  {
+    "subsystem": "include",
+    "file": "uapi",
+    "func": "struct_iovec"
+  },
+  {
+    "subsystem": "include",
+    "file": "asm-generic",
+    "func": "DATA_DATA"
+  },
+  {
+    "subsystem": "include",
+    "file": "asm-generic",
+    "func": "pud_offset"
+  },
+  {
+    "subsystem": "include",
+    "file": "asm-generic",
+    "func": "set_bit"
+  },
+  {
+    "subsystem": "include",
+    "file": "asm-generic",
+    "func": "current"
+  },
+  {
+    "subsystem": "include",
+    "file": "asm-generic",
+    "func": "pmd_addr_end"
+  },
+  {
+    "subsystem": "include",
+    "file": "asm-generic",
+    "func": "pgd_addr_end"
+  },
+  {
+    "subsystem": "include",
+    "file": "asm-generic",
+    "func": "pud_addr_end"
+  },
+  {
+    "subsystem": "include",
+    "file": "asm-generic",
+    "func": "__fix_to_virt"
+  },
+  {
+    "subsystem": "security",
+    "file": "selinux",
+    "func": "SELinux"
+  },
+  {
+    "subsystem": "security",
+    "file": "keys",
+    "func": "README"
+  },
+  {
+    "subsystem": "security",
+    "file": "credentials",
+    "func": "Credentials"
+  },
+  {
+    "subsystem": "lib",
+    "file": "xarray.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "lib",
+    "file": "iov_iter.c",
+    "func": "iterate_and_advance"
+  },
+  {
+    "subsystem": "lib",
+    "file": "iov_iter.c",
+    "func": "iov_iter_copy_from_user_atomic"
+  },
+  {
+    "subsystem": "lib",
+    "file": "iov_iter.c",
+    "func": "iov_iter_advance"
+  },
+  {
+    "subsystem": "lib",
+    "file": "iov_iter.c",
+    "func": "iov_iter_init"
+  },
+  {
+    "subsystem": "fs",
+    "file": "sync.c",
+    "func": "vfs_fsync_range"
+  },
+  {
+    "subsystem": "fs",
+    "file": "fuse",
+    "func": "README"
+  },
+  {
+    "subsystem": "fs",
+    "file": "fuse",
+    "func": "OP"
+  },
+  {
+    "subsystem": "fs",
+    "file": "filesystems.c",
+    "func": "register_filesystem"
+  },
+  {
+    "subsystem": "fs",
+    "file": "filesystems.c",
+    "func": "get_fs_type"
+  },
+  {
+    "subsystem": "fs",
+    "file": "filesystems.c",
+    "func": "find_filesystem"
+  },
+  {
+    "subsystem": "fs",
+    "file": "filesystems.c",
+    "func": "__get_fs_type"
+  },
+  {
+    "subsystem": "fs",
+    "file": "sdcardfs",
+    "func": "README"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext2",
+    "func": "Ext3JBD"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext2",
+    "func": "Ext2"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext2",
+    "func": "UsefulCommonands"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext2",
+    "func": "e2fsck"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "de_thread"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "do_open_execat"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "search_binary_handler"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "exec_binprm"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "prepare_bprm_creds"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "prepare_binprm"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "do_execveat_common"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "install_exec_creds"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "do_execve"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "shift_arg_pages"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "exec_mmap"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "__bprm_mm_init"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "formats"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "acct_arg_size"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "set_binfmt"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "sys_execve"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "bprm_fill_uid"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "setup_arg_pages"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "setup_new_exec"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "flush_old_exec"
+  },
+  {
+    "subsystem": "fs",
+    "file": "exec.c",
+    "func": "bprm_mm_init"
+  },
+  {
+    "subsystem": "fs",
+    "file": "buffer.c",
+    "func": "__block_write_begin"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namespace.c",
+    "func": "sys_mount"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namespace.c",
+    "func": "do_mount"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namespace.c",
+    "func": "init_mount_tree"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namespace.c",
+    "func": "mnt_init"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namespace.c",
+    "func": "mnt_want_write"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namespace.c",
+    "func": "__mnt_want_write"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namespace.c",
+    "func": "create_mnt_ns"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namespace.c",
+    "func": "vfs_kern_mount"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namespace.c",
+    "func": "do_new_mount"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ramfs",
+    "func": "README"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ramfs",
+    "func": "init_ramfs_fs"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ramfs",
+    "func": "ramfs_get_inode"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ramfs",
+    "func": "ramfs_fill_super"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ramfs",
+    "func": "ramfs_fs_type"
+  },
+  {
+    "subsystem": "fs",
+    "file": "f2fs",
+    "func": "README"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "getname_flags"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "path_parentat"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "terminate_walk"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "may_create"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "atomic_open"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "set_root"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "filename_lookup"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "may_open"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "path_openat"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "path_get"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "filename_parentat"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "lookup_fast"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "do_filp_open"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "lookup_last"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "vfs_create"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "walk_component"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "kern_path"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "complete_walk"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "lookup_open"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "lookup_slow"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "getname"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "link_path_walk"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "set_nameidata"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "lookup_dcache"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "user_path_parent"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "do_last"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "struct_nameidata"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "path_lookupat"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "handle_truncate"
+  },
+  {
+    "subsystem": "fs",
+    "file": "namei.c",
+    "func": "path_init"
+  },
+  {
+    "subsystem": "fs",
+    "file": "super.c",
+    "func": "mount_bdev"
+  },
+  {
+    "subsystem": "fs",
+    "file": "super.c",
+    "func": "mount_nodev"
+  },
+  {
+    "subsystem": "fs",
+    "file": "super.c",
+    "func": "sget"
+  },
+  {
+    "subsystem": "fs",
+    "file": "super.c",
+    "func": "mount_fs"
+  },
+  {
+    "subsystem": "fs",
+    "file": "open.c",
+    "func": "do_dentry_open"
+  },
+  {
+    "subsystem": "fs",
+    "file": "open.c",
+    "func": "sys_openat"
+  },
+  {
+    "subsystem": "fs",
+    "file": "open.c",
+    "func": "build_open_flags"
+  },
+  {
+    "subsystem": "fs",
+    "file": "open.c",
+    "func": "vfs_open"
+  },
+  {
+    "subsystem": "fs",
+    "file": "open.c",
+    "func": "do_truncate"
+  },
+  {
+    "subsystem": "fs",
+    "file": "open.c",
+    "func": "do_sys_open"
+  },
+  {
+    "subsystem": "fs",
+    "file": "libfs.c",
+    "func": "generic_file_fsync"
+  },
+  {
+    "subsystem": "fs",
+    "file": "libfs.c",
+    "func": "__generic_file_fsync"
+  },
+  {
+    "subsystem": "fs",
+    "file": "file.c",
+    "func": "fd_install"
+  },
+  {
+    "subsystem": "fs",
+    "file": "file.c",
+    "func": "__fdget"
+  },
+  {
+    "subsystem": "fs",
+    "file": "file.c",
+    "func": "__fdget_pos"
+  },
+  {
+    "subsystem": "fs",
+    "file": "file.c",
+    "func": "__fget"
+  },
+  {
+    "subsystem": "fs",
+    "file": "file.c",
+    "func": "__fget_light"
+  },
+  {
+    "subsystem": "fs",
+    "file": "file.c",
+    "func": "__fd_install"
+  },
+  {
+    "subsystem": "fs",
+    "file": "dcache.c",
+    "func": "__d_alloc"
+  },
+  {
+    "subsystem": "fs",
+    "file": "dcache.c",
+    "func": "dcache_init"
+  },
+  {
+    "subsystem": "fs",
+    "file": "dcache.c",
+    "func": "d_alloc_parallel"
+  },
+  {
+    "subsystem": "fs",
+    "file": "dcache.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "fs",
+    "file": "dcache.c",
+    "func": "d_hash"
+  },
+  {
+    "subsystem": "fs",
+    "file": "dcache.c",
+    "func": "dcache_init_early"
+  },
+  {
+    "subsystem": "fs",
+    "file": "dcache.c",
+    "func": "__d_lookup"
+  },
+  {
+    "subsystem": "fs",
+    "file": "dcache.c",
+    "func": "vfs_caches_init"
+  },
+  {
+    "subsystem": "fs",
+    "file": "dcache.c",
+    "func": "d_alloc"
+  },
+  {
+    "subsystem": "fs",
+    "file": "dcache.c",
+    "func": "vfs_caches_init_early"
+  },
+  {
+    "subsystem": "fs",
+    "file": "file_table.c",
+    "func": "files_maxfiles_init"
+  },
+  {
+    "subsystem": "fs",
+    "file": "file_table.c",
+    "func": "files_init"
+  },
+  {
+    "subsystem": "fs",
+    "file": "file_table.c",
+    "func": "get_empty_file"
+  },
+  {
+    "subsystem": "fs",
+    "file": "mount.h",
+    "func": "struct_mnt_namespace"
+  },
+  {
+    "subsystem": "fs",
+    "file": "attr.c",
+    "func": "notify_change"
+  },
+  {
+    "subsystem": "fs",
+    "file": "binfmt_elf.c",
+    "func": "load_elf_binary"
+  },
+  {
+    "subsystem": "fs",
+    "file": "binfmt_elf.c",
+    "func": "total_mapping_size"
+  },
+  {
+    "subsystem": "fs",
+    "file": "binfmt_elf.c",
+    "func": "create_elf_tables"
+  },
+  {
+    "subsystem": "fs",
+    "file": "binfmt_elf.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "fs",
+    "file": "binfmt_elf.c",
+    "func": "elf_format"
+  },
+  {
+    "subsystem": "fs",
+    "file": "binfmt_elf.c",
+    "func": "elf_map"
+  },
+  {
+    "subsystem": "fs",
+    "file": "binfmt_elf.c",
+    "func": "load_elf_interp"
+  },
+  {
+    "subsystem": "fs",
+    "file": "binfmt_elf.c",
+    "func": "set_brk"
+  },
+  {
+    "subsystem": "fs",
+    "file": "binfmt_elf.c",
+    "func": "load_elf_phdrs"
+  },
+  {
+    "subsystem": "fs",
+    "file": "inode.c",
+    "func": "alloc_inode"
+  },
+  {
+    "subsystem": "fs",
+    "file": "inode.c",
+    "func": "new_inode_pseudo"
+  },
+  {
+    "subsystem": "fs",
+    "file": "inode.c",
+    "func": "inode_init_always"
+  },
+  {
+    "subsystem": "fs",
+    "file": "inode.c",
+    "func": "inode_init_early"
+  },
+  {
+    "subsystem": "fs",
+    "file": "inode.c",
+    "func": "new_inode"
+  },
+  {
+    "subsystem": "fs",
+    "file": "inode.c",
+    "func": "inode_init"
+  },
+  {
+    "subsystem": "fs",
+    "file": "read_write.c",
+    "func": "new_sync_read"
+  },
+  {
+    "subsystem": "fs",
+    "file": "read_write.c",
+    "func": "rw_verify_area"
+  },
+  {
+    "subsystem": "fs",
+    "file": "read_write.c",
+    "func": "sys_write"
+  },
+  {
+    "subsystem": "fs",
+    "file": "read_write.c",
+    "func": "vfs_write"
+  },
+  {
+    "subsystem": "fs",
+    "file": "read_write.c",
+    "func": "read"
+  },
+  {
+    "subsystem": "fs",
+    "file": "read_write.c",
+    "func": "__vfs_write"
+  },
+  {
+    "subsystem": "fs",
+    "file": "read_write.c",
+    "func": "fdget_pos"
+  },
+  {
+    "subsystem": "fs",
+    "file": "read_write.c",
+    "func": "vfs_read"
+  },
+  {
+    "subsystem": "fs",
+    "file": "read_write.c",
+    "func": "new_sync_write"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "README"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_ext_truncate"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_ext_remove_space"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_ext_rm_leaf"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_ext_map_blocks"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_inode_journal_mode"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_journal_start"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "__ext4_journal_start"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_should_order_data"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_claim_free_clusters"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_has_free_clusters"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_ioctl"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "__ext4_journal_start_sb"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_xattr_ibody_header"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "README"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_xattr_entry"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_xattr_header"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_submit_bio_read"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_mpage_readpages"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "mpage_end_io"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_inode_info"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_sb_info"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_new_inode_start_handle"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_group_desc"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_inode"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_map_blocks"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_encrypted_inode"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_super_block"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_flex_groups"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_get_groups_count"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_dir_entry_2"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_sync_file"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "discard"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_create"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_dir_inode_operations"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_alloc_inode"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_init_fs"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_fs_type"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_sops"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_mount"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_extent_header"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_extent"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_extent_idx"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_ext_path"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_extent_tail"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_file_open"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_file_mmap"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_file_inode_operations"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_file_operations"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_file_write_iter"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_extent_status"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "struct_ext4_es_tree"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "discard"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_inherit_context"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_process_policy"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_is_encryption_context_consistent_with_policy"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_create_encryption_context_from_policy"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_inode_has_encryption_context"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_da_map_blocks"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_da_get_block_prep"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_readpage"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_da_reserve_space"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_da_write_begin"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_readpages"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_writepages"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_block_write_begin"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_journalled_aops"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_begin_ordered_truncate"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "mpage_submit_page"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_set_aops"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_da_aops"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_map_blocks"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "mpage_process_page_bufs"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "mpage_prepare_extent_to_map"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_aops"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_truncate"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_da_write_end"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_setattr"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_dirty_inode"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_es_init_tree"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_es_lookup_extent"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "quota"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "quota.example"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "ext4_bio_write_page"
+  },
+  {
+    "subsystem": "fs",
+    "file": "ext4",
+    "func": "__ext4_new_inode"
+  },
+  {
+    "subsystem": "fs",
+    "file": "jbd2",
+    "func": "README"
+  },
+  {
+    "subsystem": "fs",
+    "file": "jbd2",
+    "func": "jbd2_trans_will_send_data_barrier"
+  },
+  {
+    "subsystem": "fs",
+    "file": "jbd2",
+    "func": "jbd2_journal_begin_ordered_truncate"
+  },
+  {
+    "subsystem": "fs",
+    "file": "block_dev.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "fs",
+    "file": "block_dev.c",
+    "func": "blkdev_get_by_path"
+  },
+  {
+    "subsystem": "fs",
+    "file": "block_dev.c",
+    "func": "lookup_bdev"
+  },
+  {
+    "subsystem": "drivers",
+    "file": "tty",
+    "func": "README"
+  },
+  {
+    "subsystem": "perf",
+    "file": "eBPF",
+    "func": "BPFd"
+  },
+  {
+    "subsystem": "perf",
+    "file": "eBPF",
+    "func": "README"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm64",
+    "func": "README"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm64",
+    "func": "README"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm64",
+    "func": "do_page_fault"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm64",
+    "func": "__do_page_fault"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "README"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "VMA_LMA"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "restore_user_regs"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "scno_tbl_why_tsk"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "smp_prepare_boot_cpu"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__switch_to"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__pabt_usr"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__vector_start"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "pabt_helper"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "pt_regs_offsets"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "TI_XXX"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "README"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "swapper_pg_dir"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "README"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__create_page_tables"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__enable_mmu"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "copy_thread"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "setup_arch"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "smp_setup_processor_id"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "setup_processor"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "cacheid_init"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "calls.S"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__mmap_switched"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "lookup_processor_type"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__lookup_processor_type"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__vet_atags"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "sys_mmap2"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "ret_slow_syscall"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "ret_fast_syscall"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "ret_from_fork"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "sys_call_table"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "vector_swi"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "setup_machine_fdt"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "setup_machine_tags"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "ARM_reg"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "struct_pt_regs"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "boot_init_stack_canary"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "init_stack"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "struct_cpu_context_save"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "current_thread_info"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "struct_thread_info"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "init_thread_info"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "THREAD_SIZE"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "INIT_THREAD_INFO"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "LAST_PKMAP"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "PKMAP_BASE"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "PAGE_OFFSET"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__phys_to_pfn"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "TASK_UNMAPPED_BASE"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "MODULES_VADDR"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "PHYS_OFFSET"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__pa_vs__va"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "TASK_SIZE"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "switch_to"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "glue-proc.h"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "domain.h"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "pte_index"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "VMALLOC"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "pgd_offset_k"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "pte_offset_kernel"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "pmd_page_vaddr"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "struct_map_desc"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "CPU_PABORT_HANDLER"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "FIXADDR_XXX"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "enum_fixed_addresses"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "switch_tls"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__pmd_populate"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "_PAGE_KERNEL_TABLE"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "struct_machine_desc"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "enable_irq"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "SECTION_XXX"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "README"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "PTE_HWTABLE_XXX"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "PMD_XXX"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "PGDIR_XXX"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "pmd_offset"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "set_pte_ext"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "STACK_TOP_MAX"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "start_thread"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "task_pt_regs"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "page.h"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "TEXT_OFFSET"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "README"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "alloc_init_pmd"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "create_mapping"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "alloc_init_pte"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "struct_cachepolicy"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "README"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "kmap_init"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__map_init_section"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "early_pte_alloc"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "early_paging_init"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "devicemaps_init"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "paging_init"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "prepare_page_table"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "mem_types"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "early_alloc"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "build_mem_type_table"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "iotable_init"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "alloc_init_pud"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "map_lowmem"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "sanity_check_meminfo"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "v7_pabort"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "dma_contiguous_early_fixup"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "dma_contiguous_remap"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "dma_mmu_remap"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "kmap_atomic"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "kunmap"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "kmap"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "pmd_off_k"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "struct_mem_type"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "pgd_alloc"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "README"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "do_page_fault"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__do_page_fault"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "do_PrefetchAbort"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "cpu_v7_set_pte_ext"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "v7_crval"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "__v7_setup"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "arm_memblock_init"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "bootmem_init"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "zone_sizes_init"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "find_limits"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "free_highpages"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "free_area_high"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "mem_init"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "arch_get_unmapped_area_topdown"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "mmap_base"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "arch_pick_mmap_layout"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "arch_get_unmapped_area"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "mmap_is_legacy"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "arch_mmap_rnd"
+  },
+  {
+    "subsystem": "arch",
+    "file": "arm",
+    "func": "README"
+  },
+  {
+    "subsystem": "mm",
+    "file": "src",
+    "func": "EXEC_DYN"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.h",
+    "func": "struct_kmem_cache_node"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.h",
+    "func": "get_node"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "__lock_page_killable"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "generic_file_read_iter"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "add_to_page_cache_locked"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "__filemap_fdatawrite"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "delete_from_page_cache"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "__generic_file_write_iter"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "generic_perform_write"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "filemap_write_and_wait_range"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "do_generic_file_read"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "__filemap_fdatawrite_range"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "pagecache_get_page"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "filemap_fdatawrite"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "find_get_entry"
+  },
+  {
+    "subsystem": "mm",
+    "file": "filemap.c",
+    "func": "filemap_fault"
+  },
+  {
+    "subsystem": "mm",
+    "file": "internal.h",
+    "func": "ra_submit"
+  },
+  {
+    "subsystem": "mm",
+    "file": "internal.h",
+    "func": "__find_buddy_index"
+  },
+  {
+    "subsystem": "mm",
+    "file": "internal.h",
+    "func": "struct_alloc_context"
+  },
+  {
+    "subsystem": "mm",
+    "file": "internal.h",
+    "func": "ALLOC_WMARK"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "__insert_vmap_area"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "vmalloc"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "vmalloc_init"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "__vmalloc_node"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "vmlist"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "vfree"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "__vunmap"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "alloc_vmap_area"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "vm_area_add_early"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "__get_vm_area_node"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "__vmalloc_node_range"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "setup_vmalloc_vm"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "__vmalloc_area_node"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "__vmalloc_node_flags"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "get_vm_area"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmalloc.c",
+    "func": "vunmap"
+  },
+  {
+    "subsystem": "mm",
+    "file": "highmem.c",
+    "func": "struct_page_address_map"
+  },
+  {
+    "subsystem": "mm",
+    "file": "highmem.c",
+    "func": "page_address_htable"
+  },
+  {
+    "subsystem": "mm",
+    "file": "highmem.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "mm",
+    "file": "highmem.c",
+    "func": "pkmap_count"
+  },
+  {
+    "subsystem": "mm",
+    "file": "highmem.c",
+    "func": "kmap_high"
+  },
+  {
+    "subsystem": "mm",
+    "file": "highmem.c",
+    "func": "map_new_virtual"
+  },
+  {
+    "subsystem": "mm",
+    "file": "highmem.c",
+    "func": "page_address"
+  },
+  {
+    "subsystem": "mm",
+    "file": "highmem.c",
+    "func": "kunmap_high"
+  },
+  {
+    "subsystem": "mm",
+    "file": "cma.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memory.c",
+    "func": "do_wp_page"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memory.c",
+    "func": "handle_mm_fault"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memory.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memory.c",
+    "func": "high_memory"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memory.c",
+    "func": "do_anonymous_page"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memory.c",
+    "func": "do_fault"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memory.c",
+    "func": "__handle_mm_fault"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memory.c",
+    "func": "mem_map"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memory.c",
+    "func": "handle_pte_fault"
+  },
+  {
+    "subsystem": "mm",
+    "file": "misc",
+    "func": "page_table"
+  },
+  {
+    "subsystem": "mm",
+    "file": "bootmem.c",
+    "func": "contig_page_data"
+  },
+  {
+    "subsystem": "mm",
+    "file": "init-mm.c",
+    "func": "init_mm"
+  },
+  {
+    "subsystem": "mm",
+    "file": "vmscan.c",
+    "func": "wakeup_kswapd"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memblock.c",
+    "func": "memblock_get_current_limit"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memblock.c",
+    "func": "__next_mem_region"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memblock.c",
+    "func": "memblock_add_range"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memblock.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memblock.c",
+    "func": "memblock"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memblock.c",
+    "func": "memblock_start_of_DRAM"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memblock.c",
+    "func": "memblock_reserve"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memblock.c",
+    "func": "__next_reserved_mem_region"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memblock.c",
+    "func": "memblock_set_current_limit"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memblock.c",
+    "func": "memblock_end_of_DRAM"
+  },
+  {
+    "subsystem": "mm",
+    "file": "memblock.c",
+    "func": "memblock_allow_resize"
+  },
+  {
+    "subsystem": "mm",
+    "file": "readahead.c",
+    "func": "page_cache_sync_readahead"
+  },
+  {
+    "subsystem": "mm",
+    "file": "readahead.c",
+    "func": "__do_page_cache_readahead"
+  },
+  {
+    "subsystem": "mm",
+    "file": "readahead.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "mm",
+    "file": "readahead.c",
+    "func": "page_cache_async_readahead"
+  },
+  {
+    "subsystem": "mm",
+    "file": "readahead.c",
+    "func": "ondemand_readahead"
+  },
+  {
+    "subsystem": "mm",
+    "file": "readahead.c",
+    "func": "read_pages"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "index_to_obj"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "kmem_cache_free"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "get_free_obj"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "DEBUG"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "__do_kmalloc"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "__do_cache_alloc"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "kmem_cache_alloc"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "__kmem_cache_create"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "slab_alloc"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "ac_get_obj"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "set_free_obj"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "obj_to_index"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "alloc_slabmgmt"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "____cache_alloc"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "cpu_cache_get"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "kmem_cache_boot"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "__ac_put_obj"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "__ac_get_obj"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "cache_grow"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "slab_get_obj"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "init_kmem_cache_node"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "enable_cpucache"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "setup_cpu_cache"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "slab_map_pages"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "kfree"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "alloc_kmem_cache_node"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "kmem_getpages"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "cache_flusharray"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "__do_tune_cpucache"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "ac_put_obj"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "do_tune_cpucache"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "kmem_cache_init"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "free_block"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "slab_put_obj"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "kmem_cache_init_late"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "__kmalloc"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "__cache_free"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "cpucache_notifier"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "cache_alloc_refill"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "kmem_cache_node_init"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "struct_array_cache"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab.c",
+    "func": "cache_init_objs"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "setup_zone_pageset"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__get_free_pages"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "current_zonelist_order"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "free_area_init_core"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "set_pageblock_order"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "alloc_kmem_pages_node"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__alloc_pages_high_priority"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__rmqueue_smallest"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "reserve_bootmem_region"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "expand"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__zone_watermark_ok"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "user_zonelist_order"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "page_is_buddy"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "node_states"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "zone_watermark_ok"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__alloc_pages_may_oom"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "set_pageblock_migratetype"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "wake_all_kswapds"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "find_suitable_fallback"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__free_one_page"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__alloc_pages_direct_compact"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "find_next_best_node"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "build_thisnode_zonelists"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__alloc_pages_direct_reclaim"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "free_hot_cold_page"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "prep_new_page"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__rmqueue_cma_fallback"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "memmap_init"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "ZONELIST_ORDER_XXX"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "get_page_from_freelist"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "change_pageblock_range"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__alloc_pages_nodemask"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "calculate_node_totalpages"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__free_pages_boot_core"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "pageset_set_batch"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "memmap_init_zone"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "pageset_update"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "zone_batchsize"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__rmqueue"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "setup_usemap"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "gfp_to_alloc_flags"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__free_pages_ok"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "free_area_init_node"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "setup_per_cpu_pageset"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "build_zonelists"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "zoneref_set_zone"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "alloc_node_mem_map"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "steal_suitable_fallback"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__rmqueue_fallback"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__free_pages"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__alloc_pages_slowpath"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "zone_pageset_init"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "free_pages"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "build_zonelists_in_zone_order"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "zone_pcp_init"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__perform_reclaim"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "free_one_page"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "init_currently_empty_zone"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "move_freepages"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "build_all_zonelists"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "pageset_init"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "fallbacks"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__build_all_zonelists"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "default_zonelist_order"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "move_freepages_block"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "zone_init_free_lists"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "build_zonelists_node"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "setup_pageset"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "buffered_rmqueue"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "set_zonelist_order"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "__free_pages_bootmem"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "boot_pageset"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "build_zonelists_in_node_order"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "node_order"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "pageset_set_high_and_batch"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page_alloc.c",
+    "func": "get_zeroed_page"
+  },
+  {
+    "subsystem": "mm",
+    "file": "nobootmem.c",
+    "func": "__free_pages_memory"
+  },
+  {
+    "subsystem": "mm",
+    "file": "nobootmem.c",
+    "func": "free_low_memory_core_early"
+  },
+  {
+    "subsystem": "mm",
+    "file": "nobootmem.c",
+    "func": "contig_page_data"
+  },
+  {
+    "subsystem": "mm",
+    "file": "nobootmem.c",
+    "func": "__free_memory_core"
+  },
+  {
+    "subsystem": "mm",
+    "file": "nobootmem.c",
+    "func": "reset_all_zones_managed_pages"
+  },
+  {
+    "subsystem": "mm",
+    "file": "nobootmem.c",
+    "func": "reset_node_managed_pages"
+  },
+  {
+    "subsystem": "mm",
+    "file": "nobootmem.c",
+    "func": "free_all_bootmem"
+  },
+  {
+    "subsystem": "mm",
+    "file": "issues",
+    "func": "hs_err"
+  },
+  {
+    "subsystem": "mm",
+    "file": "page-writeback.c",
+    "func": "do_writepages"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "find_vma_links"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "__vma_link_file"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "sys_brk"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "get_unmapped_area"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "do_brk"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "vm_brk"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "do_mmap"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "__vma_link"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "do_swap_page"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "insert_vm_struct"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "vma_link"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "find_vma"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "sys_mmap_pgoff"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "unmapped_area_topdown"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "vma_merge"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "mmap_region"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "memory_overcommit"
+  },
+  {
+    "subsystem": "mm",
+    "file": "mmap.c",
+    "func": "Java_hs_error"
+  },
+  {
+    "subsystem": "mm",
+    "file": "util.c",
+    "func": "vm_mmap_pgoff"
+  },
+  {
+    "subsystem": "mm",
+    "file": "util.c",
+    "func": "vm_mmap"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "kmem_cache_destroy"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "slab_caches"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "kmalloc_caches"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "do_kmem_cache_create"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "kmalloc_slab"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "size_index"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "size_index_elem"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "create_kmalloc_cache"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "create_kmalloc_caches"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "kmem_cache_create"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "new_kmalloc_cache"
+  },
+  {
+    "subsystem": "mm",
+    "file": "slab_common.c",
+    "func": "create_boot_cache"
+  },
+  {
+    "subsystem": "init",
+    "file": "initramfs.c",
+    "func": "populate_rootfs"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "mm_init"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "try_to_run_init_process"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "do_early_param"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "do_initcalls"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "kernel_init"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "do_basic_setup"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "kernel_init_freeable"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "boot_cpu_init"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "setup_command_line"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "parse_early_param"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "start_kernel"
+  },
+  {
+    "subsystem": "init",
+    "file": "main.c",
+    "func": "rest_init"
+  },
+  {
+    "subsystem": "init",
+    "file": "init_task.c",
+    "func": "init_thread_union"
+  },
+  {
+    "subsystem": "init",
+    "file": "init_task.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "init",
+    "file": "init_task.c",
+    "func": "init_task"
+  },
+  {
+    "subsystem": "init",
+    "file": "fs",
+    "func": "README"
+  },
+  {
+    "subsystem": "init",
+    "file": "version.c",
+    "func": "init_uts_ns"
+  },
+  {
+    "subsystem": "init",
+    "file": "mm",
+    "func": "README"
+  },
+  {
+    "subsystem": "init",
+    "file": "do_mounts.c",
+    "func": "saved_root_name"
+  },
+  {
+    "subsystem": "init",
+    "file": "do_mounts.c",
+    "func": "README"
+  },
+  {
+    "subsystem": "init",
+    "file": "do_mounts.c",
+    "func": "init_rootfs"
+  },
+  {
+    "subsystem": "init",
+    "file": "do_mounts.c",
+    "func": "rootfs_fs_type"
+  },
+  {
+    "subsystem": "init",
+    "file": "do_mounts.c",
+    "func": "rootfs_mount"
+  },
+  {
+    "subsystem": "init",
+    "file": "do_mounts.c",
+    "func": "fs_names_setup"
+  },
+  {
+    "subsystem": "init",
+    "file": "do_mounts.c",
+    "func": "root_fs_names"
+  },
+  {
+    "subsystem": "init",
+    "file": "do_mounts.c",
+    "func": "root_dev_setup"
+  },
+  {
+    "subsystem": "boot",
+    "file": "x86",
+    "func": "Boot"
+  },
+  {
+    "subsystem": "appendix",
+    "file": "container_of",
+    "func": "container_of"
+  },
+  {
+    "subsystem": "appendix",
+    "file": "rbthree",
+    "func": "rbthree"
+  },
+  {
+    "subsystem": "appendix",
+    "file": "gcc_op",
+    "func": "asmlinkage"
+  },
+  {
+    "subsystem": "appendix",
+    "file": "gcc_op",
+    "func": "__init"
+  },
+  {
+    "subsystem": "appendix",
+    "file": "highmem",
+    "func": "README"
+  },
+  {
+    "subsystem": "appendix",
+    "file": "double_list",
+    "func": "double_list"
+  }
+]

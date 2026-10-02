@@ -1,0 +1,6 @@
+{
+  "name": "__reset_isolation_suitable",
+  "file": "mm/compaction.c",
+  "line": 244,
+  "subsystem": "mm"
+}
