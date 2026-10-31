@@ -1,0 +1,17 @@
+{
+  "updated": "2026-11-01T07:36:29",
+  "total": 1,
+  "by_subsystem": {
+    "mm": 1
+  },
+  "analyzed": [
+    {
+      "name": "generic_access_phys",
+      "file": "mm/memory.c",
+      "subsystem": "mm",
+      "date": "2026-11-01",
+      "line_start": 3622,
+      "line_end": 3641
+    }
+  ]
+}
