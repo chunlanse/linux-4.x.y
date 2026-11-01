@@ -57,3 +57,9 @@ https://github.com/novelinux/linux-4.x.y/tree/master/mm/vmalloc.c/README.md
 进程虚拟地址空间管理.
 
 https://github.com/novelinux/linux-4.x.y/tree/master/mm/mmap.c/README.md
+
+### Vmstat
+
+per-CPU 差分与阈值合并的虚拟内存统计.
+
+https://github.com/novelinux/linux-4.x.y/tree/master/mm/vmstat.c/README.md

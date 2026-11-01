@@ -1,0 +1,26 @@
+{
+  "updated_at": "2026-11-02",
+  "kernel_version": "v4.19",
+  "total_analyzed": 1,
+  "subsystems": {
+    "mm": 1,
+    "kernel/sched": 0,
+    "drivers": 0,
+    "fs": 0,
+    "kernel": 0,
+    "ipc": 0,
+    "net": 0,
+    "block": 0,
+    "security": 0,
+    "lib": 0
+  },
+  "last_target": {
+    "name": "inc_zone_page_state",
+    "subsystem": "mm",
+    "file": "mm/vmstat.c",
+    "line_start": 524,
+    "line_end": 528,
+    "type": "function",
+    "date": "2026-11-02"
+  }
+}
