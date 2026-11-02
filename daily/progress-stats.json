@@ -1,0 +1,25 @@
+{
+  "last_run": "2026-11-03",
+  "today_target": {
+    "name": "schedule_tail",
+    "file": "kernel/sched/core.c",
+    "lines": "2762-2788",
+    "subsystem": "kernel/sched",
+    "type": "function"
+  },
+  "total_analyzed": 826,
+  "by_subsystem": {
+    "mm": 226,
+    "fs": 208,
+    "include": 181,
+    "arch": 101,
+    "kernel(其他)": 67,
+    "init": 23,
+    "kernel/sched": 14,
+    "lib": 4,
+    "ipc": 1,
+    "net": 1
+  },
+  "daily_archive_runs": 1,
+  "note": "累计数含仓库内已有 825 篇分析笔记 + 今日新增 1 篇；每日归档仅统计 daily/ 下的新增条目。"
+}
