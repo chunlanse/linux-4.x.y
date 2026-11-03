@@ -95,3 +95,9 @@ void __sched some_function(...) {
 该前缀目的在于，将相关函数的代码编译之后，放到目标文件的一个特定的段中，即.sched.text中。该信息使得内核在显示栈转储或类似信息时，忽略所有与调度有关的调用。由于调度器函数调用不是普通代码流程的一部分，因此在这种情况下是没有意义的。
 
 **[__scheduler](./core.c/__schedule.md)**
+
+3. 新任务唤醒
+
+fork/clone 创建的子任务由 `_do_fork()` 在 `copy_process()` 之后交给 `wake_up_new_task()`：置 `TASK_RUNNING`、按 `SD_BALANCE_FORK` 选核、入队并触发抢占检查。（2026-11-04）
+
+**[wake_up_new_task](./core.c/wake_up_new_task.md)**

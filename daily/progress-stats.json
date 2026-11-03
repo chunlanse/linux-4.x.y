@@ -1,0 +1,38 @@
+{
+  "updated": "2026-11-04",
+  "baseline_version": "Linux 4.9 (linux-4.x.y)",
+  "total_analyzed": 904,
+  "kernel_sched_analyzed": 14,
+  "by_subsystem": {
+    "mm": 230,
+    "fs": 221,
+    "include": 183,
+    "arch": 126,
+    "kernel": 91,
+    "init": 24,
+    "appendix": 6,
+    "lib": 5,
+    "kbuild": 4,
+    "security": 3,
+    "perf": 2,
+    "boot": 2,
+    "block": 2,
+    "debug": 1,
+    "drivers": 1,
+    "ipc": 1,
+    "net": 1,
+    "samples": 1
+  },
+  "daily_runs": [
+    {
+      "date": "2026-11-04",
+      "subsystem": "kernel/sched",
+      "target": "wake_up_new_task",
+      "file": "kernel/sched/core.c",
+      "line_start": 2561,
+      "line_end": 2598,
+      "type": "function",
+      "archive": "daily/2026/11/2026-11-04/kernel_sched_wake_up_new_task.md"
+    }
+  ]
+}
