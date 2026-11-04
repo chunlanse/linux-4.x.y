@@ -1,0 +1,32 @@
+{
+  "updated": "2026-11-05",
+  "total_notes": 583,
+  "by_subsystem": {
+    "mm": 230,
+    "fs": 221,
+    "kernel": 90,
+    "init": 23,
+    "appendix": 5,
+    "lib": 4,
+    "kbuild": 3,
+    "security": 2,
+    "ipc": 1,
+    "net": 1,
+    "block": 1,
+    "perf": 1,
+    "boot": 1,
+    "drivers": 0,
+    "debug": 0,
+    "samples": 0
+  },
+  "note": "kernel 计数包含 kernel/sched；drivers/ 尚未开始覆盖",
+  "daily_runs": [
+    {
+      "date": "2026-11-05",
+      "subsystem": "kernel/sched",
+      "target": "migration_call",
+      "file": "kernel/sched/core.c",
+      "lines": "5518-5564"
+    }
+  ]
+}
