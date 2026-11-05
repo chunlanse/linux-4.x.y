@@ -1,0 +1,30 @@
+{
+  "updated_at": "2026-11-06",
+  "workflow": "linux-kernel-daily-study",
+  "kernel_source": "torvalds/linux v4.9",
+  "total_entries": 805,
+  "workflow_entries": 1,
+  "subsystems": {
+    "mm": 227,
+    "fs": 208,
+    "include": 182,
+    "arch": 101,
+    "kernel": 67,
+    "kernel/sched": 14,
+    "lib": 4,
+    "net": 1,
+    "ipc": 1,
+    "drivers": 0,
+    "block": 0,
+    "security": 0
+  },
+  "history": [
+    {
+      "date": "2026-11-06",
+      "subsystem": "kernel/sched",
+      "target": "preempt_schedule_common",
+      "file": "kernel/sched/core.c",
+      "type": "function"
+    }
+  ]
+}
