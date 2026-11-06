@@ -1,0 +1,10 @@
+{
+  "total": 1,
+  "subsystems": {
+    "kernel/sched": 1
+  },
+  "analyzed": [
+    "kernel/sched:init_cfs_rq"
+  ],
+  "last_update": "2026-11-07"
+}

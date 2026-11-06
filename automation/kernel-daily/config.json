@@ -1,0 +1,47 @@
+{
+  "workspace": "/workspace",
+  "kernel": {
+    "repo": "https://github.com/gregkh/linux.git",
+    "branch": "linux-4.9.y",
+    "src": "/workspace/.kernel/linux-4.9.y",
+    "sparse_dirs": [
+      "mm",
+      "kernel",
+      "fs",
+      "drivers",
+      "include",
+      "block",
+      "net",
+      "security",
+      "ipc",
+      "lib",
+      "init",
+      "arch/arm",
+      "arch/arm64"
+    ]
+  },
+  "archive_root": "/workspace/daily",
+  "feishu": {
+    "identity": "user",
+    "user_id": "ou_f0a8c080cedb2a5b307a5b6d1e1dba15",
+    "chat_id": ""
+  },
+  "priority": [
+    {"name": "mm", "weight": 25, "paths": ["mm"]},
+    {"name": "kernel/sched", "weight": 25, "paths": ["kernel/sched"]},
+    {"name": "drivers", "weight": 15, "paths": [
+      "drivers/base", "drivers/block", "drivers/char", "drivers/tty",
+      "drivers/gpio", "drivers/pci", "drivers/net", "drivers/md",
+      "drivers/scsi", "drivers/usb/core", "drivers/acpi", "drivers/i2c",
+      "drivers/spi", "drivers/mmc/core", "drivers/regulator", "drivers/dma",
+      "drivers/clk", "drivers/rtc", "drivers/watchdog"
+    ]},
+    {"name": "fs", "weight": 15, "paths": ["fs"]},
+    {"name": "kernel", "weight": 7, "paths": ["kernel"], "exclude_paths": ["kernel/sched"]},
+    {"name": "net", "weight": 5, "paths": ["net"]},
+    {"name": "block", "weight": 3, "paths": ["block"]},
+    {"name": "security", "weight": 2, "paths": ["security"]},
+    {"name": "lib", "weight": 2, "paths": ["lib"]},
+    {"name": "ipc", "weight": 1, "paths": ["ipc"]}
+  ]
+}
