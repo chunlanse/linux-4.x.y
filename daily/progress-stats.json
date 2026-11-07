@@ -1,0 +1,31 @@
+{
+  "last_updated": "2026-11-08",
+  "total_analyzed": 892,
+  "today": {
+    "date": "2026-11-08",
+    "subsystem": "mm",
+    "name": "shrink_lruvec",
+    "file": "mm/vmscan.c",
+    "lines": "2182-2297",
+    "kernel_version": "v4.4"
+  },
+  "subsystems": {
+    "mm": 231,
+    "kernel/sched": 13,
+    "drivers": 0,
+    "fs": 221,
+    "kernel": 76,
+    "ipc": 1,
+    "net": 1,
+    "block": 1,
+    "security": 2,
+    "lib": 4,
+    "arch": 127,
+    "include": 182,
+    "init": 23,
+    "appendix": 5,
+    "kbuild": 3,
+    "perf": 1,
+    "boot": 1
+  }
+}
