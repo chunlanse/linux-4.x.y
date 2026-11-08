@@ -1,0 +1,15 @@
+{
+  "total": 847,
+  "by_subsystem": {
+    "kernel": 80,
+    "include": 182,
+    "mm": 226,
+    "init": 23,
+    "fs": 208,
+    "ipc": 2,
+    "lib": 4,
+    "arch": 125,
+    "net": 1
+  },
+  "last_run": "2026-11-09"
+}
