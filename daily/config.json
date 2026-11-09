@@ -1,0 +1,28 @@
+{
+  "kernel": {
+    "repo": "torvalds/linux",
+    "tag": "v4.9",
+    "raw_url": "https://raw.githubusercontent.com/{repo}/{tag}/{path}",
+    "local_src": ""
+  },
+  "priority_subsystems": {
+    "mm": 0.25,
+    "kernel/sched": 0.25,
+    "drivers": 0.15,
+    "fs": 0.15,
+    "kernel": 0.05,
+    "block": 0.05,
+    "net": 0.04,
+    "ipc": 0.03,
+    "security": 0.02,
+    "lib": 0.01
+  },
+  "archive_root": "daily",
+  "feishu": {
+    "chat_id": "oc_9c1d920856f1af5300f46789f1692111",
+    "chat_name": "赵德超's Feishu Assistant",
+    "create_doc": true,
+    "send_im_message": false,
+    "parent_position": "my_library"
+  }
+}

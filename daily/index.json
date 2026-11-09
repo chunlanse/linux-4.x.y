@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "date": "2026-11-10",
+      "subsystem": "kernel/sched",
+      "name": "preempt_notifier_unregister",
+      "file": "kernel/sched/core.c",
+      "line_start": 2635,
+      "line_end": 2638,
+      "type": "function",
+      "summary": "KVM vCPU 线程退出时从 current 的抢占通知器链表摘除节点，使后续调度不再回调 sched_in/sched_out；依赖调用方关抢占且不可在回调内调用。",
+      "archive": "2026/11/2026-11-10/kernel-sched__preempt_notifier_unregister.md",
+      "doc_url": "https://my.feishu.cn/docx/H9DWd2FE0o6yUMxRSuNcsAP2nXe"
+    }
+  ]
+}
