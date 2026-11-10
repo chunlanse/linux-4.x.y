@@ -1,0 +1,24 @@
+{
+  "updated": "2026-11-11",
+  "total": 550,
+  "baseline_before_workflow": 549,
+  "by_subsystem": {
+    "mm": 231,
+    "kernel": 89,
+    "fs": 221,
+    "drivers": 0,
+    "block": 1,
+    "ipc": 1,
+    "net": 1,
+    "lib": 4,
+    "security": 2
+  },
+  "last_target": {
+    "name": "swap_readpage",
+    "subsystem": "mm",
+    "file": "mm/page_io.c",
+    "lines": "351-420",
+    "type": "function",
+    "kernel_version": "v4.19"
+  }
+}
