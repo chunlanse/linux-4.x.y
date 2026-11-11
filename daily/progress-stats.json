@@ -1,0 +1,39 @@
+{
+  "updated": "2026-11-12",
+  "kernel_baseline": "Linux v4.9 (linux-4.x.y)",
+  "daily_archive_total": 1,
+  "daily_by_subsystem": {
+    "mm": 1,
+    "kernel/sched": 0,
+    "drivers": 0,
+    "fs": 0,
+    "kernel": 0,
+    "ipc": 0,
+    "net": 0,
+    "block": 0,
+    "security": 0,
+    "lib": 0
+  },
+  "workspace_notes_total": 601,
+  "workspace_notes_by_subsystem": {
+    "mm": 242,
+    "kernel/sched": 15,
+    "drivers": 1,
+    "fs": 233,
+    "kernel": 98,
+    "ipc": 1,
+    "net": 1,
+    "block": 2,
+    "security": 3,
+    "lib": 5
+  },
+  "history": [
+    {
+      "date": "2026-11-12",
+      "subsystem": "mm",
+      "target": "shrink_zones",
+      "file": "mm/vmscan.c:2640-2727",
+      "note": "daily/2026/11/2026-11-12/mm_shrink_zones.md"
+    }
+  ]
+}
