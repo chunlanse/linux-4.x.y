@@ -1,0 +1,28 @@
+{
+  "updated": "2026-11-13",
+  "kernel_version": "v4.19 (linux-4.x.y)",
+  "daily_total": 1,
+  "workspace_notes_total": 851,
+  "by_subsystem": {
+    "mm": 226,
+    "fs": 208,
+    "include": 182,
+    "arch": 125,
+    "kernel": 67,
+    "init": 23,
+    "sched": 14,
+    "lib": 4,
+    "net": 1,
+    "ipc": 1
+  },
+  "history": [
+    {
+      "date": "2026-11-13",
+      "subsystem": "sched",
+      "target": "prepare_to_swait_event",
+      "file": "kernel/sched/swait.c",
+      "lines": "90-110",
+      "note": "daily/2026/11/2026-11-13/sched_prepare_to_swait_event.md"
+    }
+  ]
+}

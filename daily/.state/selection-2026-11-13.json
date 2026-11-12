@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-13",
+  "subsystem": "sched",
+  "name": "prepare_to_swait_event",
+  "file": "kernel/sched/swait.c",
+  "line_start": 70,
+  "line_end": 130,
+  "def_line": 90,
+  "static": false,
+  "exported": true,
+  "callers": 4,
+  "score": 8.8,
+  "kernel_src": "/root/linux-stable",
+  "snippet": "    70\tEXPORT_SYMBOL(swake_up_all);\n    71\t\n    72\tstatic void __prepare_to_swait(struct swait_queue_head *q, struct swait_queue *wait)\n    73\t{\n    74\t\twait->task = current;\n    75\t\tif (list_empty(&wait->task_list))\n    76\t\t\tlist_add_tail(&wait->task_list, &q->task_list);\n    77\t}\n    78\t\n    79\tvoid prepare_to_swait_exclusive(struct swait_queue_head *q, struct swait_queue *wait, int state)\n    80\t{\n    81\t\tunsigned long flags;\n    82\t\n    83\t\traw_spin_lock_irqsave(&q->lock, flags);\n    84\t\t__prepare_to_swait(q, wait);\n    85\t\tset_current_state(state);\n    86\t\traw_spin_unlock_irqrestore(&q->lock, flags);\n    87\t}\n    88\tEXPORT_SYMBOL(prepare_to_swait_exclusive);\n    89\t\n    90\tlong prepare_to_swait_event(struct swait_queue_head *q, struct swait_queue *wait, int state)\n    91\t{\n    92\t\tunsigned long flags;\n    93\t\tlong ret = 0;\n    94\t\n    95\t\traw_spin_lock_irqsave(&q->lock, flags);\n    96\t\tif (unlikely(signal_pending_state(state, current))) {\n    97\t\t\t/*\n    98\t\t\t * See prepare_to_wait_event(). TL;DR, subsequent swake_up_one()\n    99\t\t\t * must not see us.\n   100\t\t\t */\n   101\t\t\tlist_del_init(&wait->task_list);\n   102\t\t\tret = -ERESTARTSYS;\n   103\t\t} else {\n   104\t\t\t__prepare_to_swait(q, wait);\n   105\t\t\tset_current_state(state);\n   106\t\t}\n   107\t\traw_spin_unlock_irqrestore(&q->lock, flags);\n   108\t\n   109\t\treturn ret;\n   110\t}\n   111\tEXPORT_SYMBOL(prepare_to_swait_event);\n   112\t\n   113\tvoid __finish_swait(struct swait_queue_head *q, struct swait_queue *wait)\n   114\t{\n   115\t\t__set_current_state(TASK_RUNNING);\n   116\t\tif (!list_empty(&wait->task_list))\n   117\t\t\tlist_del_init(&wait->task_list);\n   118\t}\n   119\t\n   120\tvoid finish_swait(struct swait_queue_head *q, struct swait_queue *wait)\n   121\t{\n   122\t\tunsigned long flags;\n   123\t\n   124\t\t__set_current_state(TASK_RUNNING);\n   125\t\n   126\t\tif (!list_empty_careful(&wait->task_list)) {\n   127\t\t\traw_spin_lock_irqsave(&q->lock, flags);\n   128\t\t\tlist_del_init(&wait->task_list);\n   129\t\t\traw_spin_unlock_irqrestore(&q->lock, flags);\n   130\t\t}"
+}
