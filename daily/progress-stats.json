@@ -1,0 +1,45 @@
+{
+  "workflow": "linux-kernel-daily-study",
+  "kernel_repo": "https://github.com/torvalds/linux",
+  "kernel_tag": "v4.3",
+  "kernel_src_path": "/workspace/.kernel-src/linux",
+  "notes_repo": "/workspace",
+  "archive_root": "/workspace/daily",
+  "priority_subsystems": ["mm", "kernel/sched", "drivers"],
+  "subsystem_weights": {
+    "mm": 25,
+    "kernel/sched": 25,
+    "drivers": 15
+  },
+  "baseline_notes": {
+    "mm": 230,
+    "kernel": 89,
+    "fs": 221,
+    "arch": 127,
+    "init": 23,
+    "lib": 4,
+    "security": 2,
+    "ipc": 1,
+    "net": 1,
+    "block": 1,
+    "total": 892
+  },
+  "last_run": "2026-11-14",
+  "total_analyzed": 1,
+  "by_subsystem": {
+    "mm": 1
+  },
+  "history": [
+    {
+      "date": "2026-11-14",
+      "subsystem": "mm",
+      "target": "memcg_create_kmem_cache",
+      "type": "function",
+      "file": "mm/slab_common.c",
+      "lines": "499-568",
+      "kernel_tag": "v4.3",
+      "note": "daily/2026/11/2026-11-14/mm_memcg_create_kmem_cache.md",
+      "feishu_doc": "https://my.feishu.cn/docx/B7ufdLTHDoDkiRxHcOec5YTpnCe"
+    }
+  ]
+}
