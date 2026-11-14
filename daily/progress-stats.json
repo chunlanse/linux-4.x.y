@@ -1,0 +1,27 @@
+{
+  "last_updated": "2026-11-15",
+  "source_tree": "torvalds/linux v4.9 (sparse clone: mm, kernel, fs, drivers/base, include/linux, ipc, net/core, block, security, lib)",
+  "total_analyzed_notes": 826,
+  "daily_archived": 1,
+  "by_subsystem": {
+    "mm": 226,
+    "fs": 208,
+    "include": 182,
+    "arch": 101,
+    "kernel": 81,
+    "init": 23,
+    "lib": 4,
+    "net": 1,
+    "ipc": 1
+  },
+  "history": [
+    {
+      "date": "2026-11-15",
+      "subsystem": "kernel",
+      "target": "do_exit",
+      "file": "kernel/exit.c",
+      "lines": "728-887",
+      "type": "function"
+    }
+  ]
+}
