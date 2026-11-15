@@ -1,0 +1,24 @@
+{
+  "last_updated": "2026-11-16",
+  "kernel_version": "v4.4",
+  "total_analyzed": 825,
+  "daily_workflow_added": 1,
+  "baseline_existing_notes": 824,
+  "by_subsystem": {
+    "mm": 226,
+    "fs": 208,
+    "include": 182,
+    "arch": 99,
+    "kernel": 81,
+    "init": 23,
+    "lib": 4,
+    "net": 1,
+    "ipc": 1
+  },
+  "latest": {
+    "date": "2026-11-16",
+    "subsystem": "kernel/sched",
+    "target": "set_user_nice",
+    "file": "kernel/sched/core.c:3452-3497"
+  }
+}
